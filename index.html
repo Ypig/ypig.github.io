@@ -3,7 +3,20 @@
         <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" />
         <title>这里是猪猪的世界</title>
         <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js" />
-        <script>console.log("Hi,welcome.I'm testing the page.....")</script>
+        <script>
+        function getQueryString(name) {
+	        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+	        var url=decodeURI(decodeURI(window.location.search))
+	        var r = url.substr(1).match(reg);
+	        if (r != null) return unescape(r[2]); return null;
+	    }
+        $(document).ready(function() {
+	        var value=getQueryString("search_name");
+	        if(value!=null){
+    		    alert("搜索功能正在开发中,目前暂不支持搜索:" + value + ",请耐心等待开发!");
+  	        }
+        });
+        </script>
     </head>
     <body style="background-image:url('https://api.isoyu.com/bing_images.php')">
 <link rel='stylesheet prefetch' href='https://ypig.github.io/styles/material.indigo-pink.min.css'>
