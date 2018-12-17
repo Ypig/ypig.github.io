@@ -16,7 +16,14 @@
     		    alert("搜索功能正在开发中,目前暂不支持搜索:" + value + ",请耐心等待开发!");
 		    location.href = "https://ypig.github.io/"
   	        }
-		body.style = "background-image:url('https://ypig.github.io/pictures/" + Math.floor((Math.random()*3)+1) + ".jpg);background-color:#000000;";
+		var cssStyles = {
+			"background-image":"url('https://raw.githubusercontent.com/Ypig/ypig.github.io/master/pictures/" + Math.floor((Math.random()*2)+1) + ".png')",
+			"background-color":"#000000",
+			"background-repeat":"no-repeat",
+			"background-size":"100% 100%",
+			"-moz-background-size":"100% 100%"
+		};
+		$(document.body).css(cssStyles)
         });
 	</script>
     </head>
