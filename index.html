@@ -23,6 +23,9 @@
 			"-moz-background-size":"100% 100%"
 		};
 		$(document.body).css(cssStyles)
+		if (!getQueryString("isUpdateRead")) {
+			location.href= "https://ypig.github.io/alert/updatebox.html"
+		}
         });
 	</script>
     </head>
@@ -80,10 +83,10 @@
           </a>
                     <!--<a class="mdl-button mdl-button--raised mdl-js-button mdl-js-ripple-effect">
             Our Homepage(inventing)
-          </a>-->
+          </a>
                     <a href="software.html" class="mdl-button mdl-button--raised mdl-js-button mdl-js-ripple-effect">
            Software
-          </a>
+          </a>-->
                 </div>
                 <div class="mdl-card__menu">
                     <!--<button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
