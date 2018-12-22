@@ -10,6 +10,11 @@
 	        var r = url.substr(1).match(reg);
 	        if (r != null) return unescape(r[2]); return null;
 	    }
+	$(document).onload(function() {
+		if (!getQueryString("isUpdateRead")) {
+			location.href= "https://ypig.github.io/alert/updatebox.html"
+		}
+	})
         $(document).ready(function() {
 		var pictureLinks = [
 			"https://ws1.sinaimg.cn/large/0072Lfvtly1fyfbcc8crjj30xc0m6hdt.jpg",
@@ -23,9 +28,6 @@
 			"-moz-background-size":"100% 100%"
 		};
 		$(document.body).css(cssStyles)
-		if (!getQueryString("isUpdateRead")) {
-			location.href= "https://ypig.github.io/alert/updatebox.html"
-		}
         });
 	</script>
     </head>
