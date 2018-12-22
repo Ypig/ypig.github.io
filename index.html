@@ -11,13 +11,12 @@
 	        if (r != null) return unescape(r[2]); return null;
 	    }
         $(document).ready(function() {
-	        var value=getQueryString("search_name");
-	        if(value!=null){
-    		    //alert("搜索功能正在开发中,目前暂不支持搜索:" + value + ",请耐心等待开发!");
-		    location.href = "https://ypig.github.io/"
-  	        }
+		var pictureLinks = [
+			"https://ws1.sinaimg.cn/large/0072Lfvtly1fyfbcc8crjj30xc0m6hdt.jpg",
+			"https://ws1.sinaimg.cn/large/0072Lfvtly1fyfbgcwt2nj31hc0u04qr.jpg"
+		];
 		var cssStyles = {
-			"background-image":"url('https://raw.githubusercontent.com/Ypig/ypig.github.io/master/pictures/" + Math.floor((Math.random()*2)+1) + ".png')",
+			"background-image":"url('" + pictureLinks[Math.floor((Math.random()*2)+1) -1 ] + ".png')",
 			"background-color":"#000000",
 			"background-repeat":"no-repeat",
 			"background-size":"100% 100%",
@@ -39,7 +38,7 @@
             <span class="mdl-layout-title">Ypig Homepage</span>
             <!-- Add spacer, to align navigation to the right -->
             <div class="mdl-layout-spacer"></div>
-            <!-- Search -->
+            <!-- Search 
 
             <form action="">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
@@ -50,7 +49,7 @@
                         <input class="mdl-textfield__input" type="text" name="search_name" id="fixed-header-drawer-exp" />
                     </div>
                 </div>
-            </form>
+            </form>-->
 
         </div>
     </header>
