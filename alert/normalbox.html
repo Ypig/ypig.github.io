@@ -24,8 +24,13 @@
 		};
 		$(document.body).css(cssStyles)
 		setTimeout(function() {
+		      if (!getQueryString("title") || !getQueryString("content")) {
+			      location.href="https://ypig.github.io"
+		      }else{
 		      $(document).attr("title","这里是猪猪的世界 - " + getQueryString("title"));
-		      $("#responsediv")[0].innerHTML = getQueryString("content")
+		      $("#content")[0].innerHTML = getQueryString("content")
+		      $("#mdl-card__title-text")[0].innerHTML = getQueryString("content");
+		      }
 		},3000);
         });
 	</script>
@@ -68,7 +73,7 @@
         <div class="mdl-grid">
             <div class="mdl-cell mdl-card mdl-shadow--2dp">
                 <div class="mdl-card__title">
-                    <h2 class="mdl-card__title-text" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">加载中......</h2>
+                    <h2 class="mdl-card__title-text" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">黄猪官网加载中......</h2>
                 </div>
 		<div class="mdl-card__supporting-text post-excerpt">
 			<p class="content"> </p><img class="loading" src="http://t.cn/Ebf5Qtu" />
