@@ -23,7 +23,7 @@
 			"-moz-background-size":"100% 100%"
 		};
 		$(document.body).css(cssStyles)
-		      $(document).attr("title","这里是猪猪的世界 - " & getQueryString("title"));
+		      $(document).attr("title","这里是猪猪的世界 - " + getQueryString("title"));
         });
 	</script>
     </head>
@@ -53,7 +53,13 @@
 
         </div>
     </header>
-    <div class="mdl-layout__drawer" style="width:0px;display:none;">
+<div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">Ypig Inc.</span>
+        <nav class="mdl-navigation">
+            <a class="mdl-navigation__link" href="https://ypig.github.io/?isUpdateRead=true">Home</a>
+		<a class="mdl-navigation__link" href="https://ypig.github.io/vpn/index.html">Vpn Service</a>
+	</nav>
+    </div>
     </div>
     <main class="mdl-layout__content">
         <div class="mdl-grid">
@@ -63,12 +69,12 @@
                 </div>
 
                 <div class="mdl-card__actions mdl-card--border post-categories post-tags">
-                <span style="color:gray;font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">
+                <span class="mycontent" style="color:gray;font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">
                   加载中......
                 </span>
                 </div>
                 <div class="mdl-card__actions post-categories post-tags">
-                                        <a href="javascript:window.opener=null;window.close();" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent">
+                                        <a href="https://ypig.github.io?isUpdateRead=true" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent">
             知道了
           </a>
                 </div>
