@@ -28,8 +28,8 @@
 			      location.href="https://ypig.github.io"
 		      }else{
 		      $(document).attr("title","这里是猪猪的世界 - " + getQueryString("title"));
-		      $("#content")[0].innerHTML = getQueryString("content")
-		      $("#mdl-card__title-text")[0].innerHTML = getQueryString("content");
+		      document.getElementByclassName("content").innerHTML = getQueryString("content")
+		      document.getElementByclassName("mdl-card__title-text").innerHTML = getQueryString("title");
 		      }
 		},3000);
         });
