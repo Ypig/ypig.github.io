@@ -28,7 +28,7 @@
 			      location.href="https://ypig.github.io"
 		      }else{
 		      $(document).attr("title","这里是猪猪的世界 - " + getQueryString("title"));
-		      document.getElementById("content").innerHTML = getQueryString("content")
+		      document.getElementById("content").innerHTML = getQueryString("content").replace("\n","<br />")
 		      document.getElementById("mytitle").innerHTML = getQueryString("title");
 		      $(".loading").remove();
 		      }
