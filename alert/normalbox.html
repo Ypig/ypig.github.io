@@ -10,6 +10,31 @@
 	        var r = url.substr(1).match(reg);
 	        if (r != null) return unescape(r[2]); return null;
 	    }
+	function ClassName (classname,tagname){
+      		if(tagname){
+          		var arr = [];
+          		var node = document.body.getElementsByTagName(tagname);
+          		for(var i = 0;i < node.length;i++){
+              			if(node[i].className == classname){
+                  			arr.push(node[i]);
+              			}
+          		}
+          return arr;
+      }else{
+          	if(document.getElementsByClassName){
+              		return document.body.getElementsByClassName(classname);
+         	 }else{
+             		 var arr = [];
+              		var node = document.body.getElementsByTagName('*');
+              		for(var i = 0;i <node.length;i++){
+                  if(node[i].className == classname){
+                      arr.push(node[i]);
+                  }
+              }
+              return arr;
+          	}
+	      }
+  	}
         $(document).ready(function() {
 		var pictureLinks = [
 			"https://ws1.sinaimg.cn/large/0072Lfvtly1fyfbcc8crjj30xc0m6hdt.jpg",
@@ -28,8 +53,8 @@
 			      location.href="https://ypig.github.io"
 		      }else{
 		      $(document).attr("title","这里是猪猪的世界 - " + getQueryString("title"));
-		      document.getElementByclassName("content").innerHTML = getQueryString("content")
-		      document.getElementByclassName("mdl-card__title-text").innerHTML = getQueryString("title");
+		      /*document.getElementBy*/ClassName("content").innerHTML = getQueryString("content")
+		      /*document.getElementBy*/ClassName("mdl-card__title-text").innerHTML = getQueryString("title");
 		      }
 		},3000);
         });
