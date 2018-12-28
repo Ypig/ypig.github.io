@@ -23,7 +23,10 @@
 			"-moz-background-size":"100% 100%"
 		};
 		$(document.body).css(cssStyles)
+		setTimeout(function() {
 		      $(document).attr("title","这里是猪猪的世界 - " + getQueryString("title"));
+		      $("#responsediv")[0].innerHTML = getQueryString("content")
+		},3000);
         });
 	</script>
     </head>
