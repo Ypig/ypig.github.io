@@ -1,1 +1,1 @@
-Test page of Ypiggy.
+admin easter egg
