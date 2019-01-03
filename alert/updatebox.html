@@ -4,6 +4,17 @@
         <title>这里是猪猪的世界</title>
         <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
         <script>
+	function is_weixin() { 
+                try{
+			window.vConsole.destroy()
+		}catch (e){}
+                var ua = window.navigator.userAgent.toLowerCase(); 
+                if (ua.match(/MicroMessenger/i) == 'micromessenger') { 
+                     console.log("ua is ok")
+                } else { 
+                     document.write("请在微信内打开")
+                }
+	}
         function getQueryString(name) {
 	        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
 	        var url=decodeURI(decodeURI(window.location.search))
@@ -11,6 +22,7 @@
 	        if (r != null) return unescape(r[2]); return null;
 	    }
         $(document).ready(function() {
+		is_weixin()
 		var pictureLinks = [
 			"https://ws1.sinaimg.cn/large/0072Lfvtly1fyfbcc8crjj30xc0m6hdt.jpg",
 			"https://ws1.sinaimg.cn/large/0072Lfvtly1fyfbgcwt2nj31hc0u04qr.jpg"
