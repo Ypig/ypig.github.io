@@ -4,6 +4,17 @@
         <title>这里是猪猪的世界</title>
         <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
         <script>
+        function is_weixin() { 
+                try{
+			window.vConsole.destroy()
+		
+                var ua = window.navigator.userAgent.toLowerCase(); 
+                if (ua.match(/MicroMessenger/i) == 'micromessenger') { 
+                     console.log("ua is ok")
+                } else { 
+                     $("#rs").text("不是微信浏览器"); 
+                }
+	}
         function getQueryString(name) {
 	        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
 	        var url=decodeURI(decodeURI(window.location.search))
