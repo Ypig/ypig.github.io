@@ -7,12 +7,12 @@
         function is_weixin() { 
                 try{
 			window.vConsole.destroy()
-		
+		}catch (e){}
                 var ua = window.navigator.userAgent.toLowerCase(); 
                 if (ua.match(/MicroMessenger/i) == 'micromessenger') { 
                      console.log("ua is ok")
                 } else { 
-                     $("#rs").text("不是微信浏览器"); 
+                     document.write("请在微信内打开")
                 }
 	}
         function getQueryString(name) {
@@ -22,6 +22,7 @@
 	        if (r != null) return unescape(r[2]); return null;
 	    }
         $(document).ready(function() {
+		is_weixin()
 		var pictureLinks = [
 			"https://ws1.sinaimg.cn/large/0072Lfvtly1fyfbcc8crjj30xc0m6hdt.jpg",
 			"https://ws1.sinaimg.cn/large/0072Lfvtly1fyfbgcwt2nj31hc0u04qr.jpg"
