@@ -1,4 +1,4 @@
-function emptyPage(){
+/*function emptyPage(){
      document.write("")
 }
 function ck() {
@@ -31,3 +31,4 @@ if((window.outerHeight-window.innerHeight)>200){
    emptyPage();
 }
 }
+*/
