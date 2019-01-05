@@ -19,10 +19,13 @@ if(typeof console.profiles =="object"&&console.profiles.length > 0){
 }
 checkWindow();
 $("document").ready(function(){
-     checkWindow();
-     if((window.outerHeight-window.innerHeight)>200){
-         emptyPage();
-     }
+     setTimeout(function(){
+          if((window.outerHeight-window.innerHeight)>200){
+               emptyPage();
+          }
+          checkWindow();
+          
+     },1000)
 })
 window.onresize = function(){
 if((window.outerHeight-window.innerHeight)>200){
