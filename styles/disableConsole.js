@@ -9,7 +9,7 @@ function ck() {
         return console.profiles.length > 0;
     }
 }
-function hehe(){
+function checkWindow(){
 if( (window.console && (console.firebug || console.table && /firebug/i.test(console.table()) )) || (typeof opera == 'object' && typeof opera.postError == 'function' && console.profile.length > 0)){
   emptyPage();
 }
@@ -17,8 +17,15 @@ if(typeof console.profiles =="object"&&console.profiles.length > 0){
   emptyPage();
 }
 }
-hehe();
+checkWindow();
+$("document").ready(function(){
+     checkWindow();
+     if((window.outerHeight-window.innerHeight)>200){
+         emptyPage();
+     }
+})
 window.onresize = function(){
-if((window.outerHeight-window.innerHeight)>200)
+if((window.outerHeight-window.innerHeight)>200){
    emptyPage();
+}
 }
