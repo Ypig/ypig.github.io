@@ -24,17 +24,7 @@
 	}
         $(document).ready(function() {
 		is_weixin()
-		var pictureLinks = [
-			"https://ws1.sinaimg.cn/large/0072Lfvtly1fyfbcc8crjj30xc0m6hdt.jpg",
-			"https://ws1.sinaimg.cn/large/0072Lfvtly1fyfbgcwt2nj31hc0u04qr.jpg"
-		];
-		var cssStyles = {
-			"background-image":"url('" + pictureLinks[Math.floor((Math.random()*2)+1) -1 ] + "')",
-			"background-color":"#000000",
-			"background-repeat":"no-repeat",
-			"background-size":"100% 100%",
-			"-moz-background-size":"100% 100%"
-		};
+		$(".mdl-grid").append("<iframe style='width:100%;height:100%' frameborder='no' border='0' marginwidth='0' marginheight='0' scrolling='no' allowtransparency='yes' src='https://demo2.yunser.com/text2mindmap/' />");
         });
 	</script>
       <style>
