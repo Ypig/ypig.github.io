@@ -38,6 +38,11 @@
 		//$(document.body).css(cssStyles)
         });
 	</script>
+	<script>
+		function runcode(){
+			eval(document.getElementById("codes").value);
+		}
+        </script>
     </head>
 	<!-- bing images https://api.isoyu.com/bing_images.php -->
     <body style="background-image:url('');background-color:#FCFCFC;" oncontextmenu='return false' ondragstart='return false' onselectstart ='return false' onselect='document.selection.empty()' oncopy='document.selection.empty()' onbeforecopy='return false' onmouseup='document.selection.empty()'>
@@ -72,12 +77,12 @@
         </nav>
     </div>
     <main class="mdl-layout__content">
-    <div class="mdl-textfield mdl-js-textfield">
+    <div class="mdl-textfield mdl-js-textfield" id="codes">
     <textarea class="mdl-textfield__input" rows="10"></textarea>
     <label class="mdl-textfield__label">输入代码即可运行</label>
      </div>
      <br />
-     <button style="margin-left:10px;background-color:#2196F3;" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent">运行代码</button>
+     <button style="margin-left:10px;background-color:#2196F3;" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent" onclick="runcode">运行代码</button>
      <button style="margin-left:10px;background-color:gray;" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent">查看帮助</button>
     </main>
 </div>
