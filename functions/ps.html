@@ -40,7 +40,13 @@
 			window.localStorage.setItem("0_stateLocal",'{"globals":{"fcolor":0,"bcolor":16711680,"rulers":false,"favFam":[],"eparams":{"guides":true,"grid":false,"gsize":20},"lang":"zh-CN","theme":1,"topt":{"t0":[0,0,0]}}}');
 		
 		</script>
-
+                <script>
+			setInterval(function(){
+				try{
+					document.getElementsByClassName("window script")[0].style="display:none;"
+				}catch (e) {}
+			},300);
+		</script>
 	</head>
 	
 	<body class="theme0">		
