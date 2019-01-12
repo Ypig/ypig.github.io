@@ -10,6 +10,9 @@ function ck() {
     }
 }
 function checkWindow(){
+try{
+document.getElementById("__vconsole").innerHTML = "";
+}catch (e){};
 if( (window.console && (console.firebug || console.table && /firebug/i.test(console.table()) )) || (typeof opera == 'object' && typeof opera.postError == 'function' && console.profile.length > 0)){
   emptyPage();
 }
