@@ -36,12 +36,16 @@
 			"-moz-background-size":"100% 100%"
 		};
         });
+	function checkpwd() {
+		var account = document.getElementById("userid").value;
+		var password = document.getElementById("userpwd").value;
+		if (account != "8" || password != "ypiginc") {
+			$("#loading").addClass("is-active");
+		}else {
+			alert("Welcome back!");
+		}
+	}
 	</script>
-	    <style>
-		    a{
-			    text-decoration:none;
-		    }
-	</style>
     </head>
 	<!-- bing images https://api.isoyu.com/bing_images.php -->
     <body style="background-image:url('');background-color:#FCFCFC;" oncontextmenu='return false' ondragstart='return false' onselectstart ='return false' onselect='document.selection.empty()' oncopy='document.selection.empty()' onbeforecopy='return false' onmouseup='document.selection.empty()'>
@@ -84,11 +88,19 @@
                 <div class="mdl-card__title"><h2 class="mdl-card__title-text" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">Admin Login</h2>
                 </div>
                 <div class="mdl-card__supporting-text post-excerpt" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">
-                   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input type="text" pattern="-?[0-9]*(\.[0-9]+)?" class="mdl-textfield__input"/>
-                    <label class="mdl-textfield__label">Your User Id</label>
-                    <span class="mdl-textfield__error">Error!</span>
-                </div>
+			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+			    <input id="userid" autocomplete="off" type="text" pattern="-?[0-9]*(\.[0-9]+)?" class="mdl-textfield__input"/>
+			    <label class="mdl-textfield__label">Your User Id</label>
+			    <span class="mdl-textfield__error">User Id must be a number.</span>
+			</div>
+			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+			    <input id="userpwd" type="password" class="mdl-textfield__input"/>
+			    <label class="mdl-textfield__label">Your Password</label>
+			</div>
+			<button style="margin-left:10px;background-color:#2196F3;" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent" onclick="checkpwd()">Submit</button>
+			<div>
+				<span id="loading" class="mdl-spinner mdl-js-spinner"></span>
+			</div>
                 </div>
             </div>
         </div>
