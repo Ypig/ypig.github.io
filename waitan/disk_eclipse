@@ -1,0 +1,91 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" />
+        <title>这里是猪猪的世界</title>
+        <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+	<script src="https://ypig.github.io/styles/disableConsole.js"></script>
+        <script>
+        function is_weixin() { 
+                try{
+			window.vConsole.destroy()
+		}catch (e){}
+                /*var ua = window.navigator.userAgent.toLowerCase(); 
+                if (ua.match(/MicroMessenger/i) == 'micromessenger') { 
+                     console.log("ua is ok")
+                } else { 
+                     document.write("")
+                }*/
+	}
+        function getQueryString(name) {
+	        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+	        var url=decodeURI(decodeURI(window.location.search))
+	        var r = url.substr(1).match(reg);
+	        if (r != null) return unescape(r[2]); return null;
+	}
+        $(document).ready(function() {
+		is_weixin()
+		var pictureLinks = [
+			"https://ws1.sinaimg.cn/large/0072Lfvtly1fyfbcc8crjj30xc0m6hdt.jpg",
+			"https://ws1.sinaimg.cn/large/0072Lfvtly1fyfbgcwt2nj31hc0u04qr.jpg"
+		];
+		var cssStyles = {
+			"background-image":"url('" + pictureLinks[Math.floor((Math.random()*2)+1) -1 ] + "')",
+			"background-color":"#000000",
+			"background-repeat":"no-repeat",
+			"background-size":"100% 100%",
+			"-moz-background-size":"100% 100%"
+		};
+        });
+	</script>
+    </head>
+	<!-- bing images https://api.isoyu.com/bing_images.php -->
+    <body style="background-image:url('');background-color:#FCFCFC;" oncontextmenu='return false' ondragstart='return false' onselectstart ='return false' onselect='document.selection.empty()' oncopy='document.selection.empty()' onbeforecopy='return false' onmouseup='document.selection.empty()'>
+<link rel='stylesheet prefetch' href='https://ypig.github.io/styles/material.indigo-pink.min.css'>
+<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header" style="background-color:#2196F3;">
+        <div class="mdl-layout__header-row">
+            <!-- Title -->
+            <span class="mdl-layout-title">Ypiggy</span>
+            <!-- Add spacer, to align navigation to the right -->
+            <div class="mdl-layout-spacer"></div>
+            <!-- Search 
+            <form action="">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+                    <label class="mdl-button mdl-js-button mdl-button--icon" for="fixed-header-drawer-exp">
+                        <i class="material-icons">search</i>
+                    </label>
+                    <div class="mdl-textfield__expandable-holder">
+                        <input class="mdl-textfield__input" type="text" name="search_name" id="fixed-header-drawer-exp" />
+                    </div>
+                </div>
+            </form>-->
+
+        </div>
+    </header>
+    <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title" style="color:#2196F3;">Ypig Inc.</span>
+        <nav class="mdl-navigation">
+            <a class="mdl-navigation__link" href="https://ypig.github.io/?isUpdateRead=true">Home</a>
+            <a class="mdl-navigation__link" href="https://ypig.github.io/functions/vpn">Vpn Service</a>
+        </nav>
+    </div>
+    <main class="mdl-layout__content">
+        <div class="mdl-grid">
+	<div class="mdl-cell mdl-card mdl-shadow--2dp" style="background-color:#ffffff" onclick="location.href= 'https://www.lanzous.com/i2uncbi'">
+                <div class="mdl-card__title">
+                    <img src="https://ypig.github.io/pictures/code.svg" style="width:30px;height:30px;display:inline;"><h2 class="mdl-card__title-text" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">Eclipse</h2>
+                </div>
+                <div class="mdl-card__supporting-text post-excerpt" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">
+                   点击本卡片下载Eclipse安装软件，不用配置环境变量啦！
+		   <br /><br />
+		   备注:WindowBuilder安装链接使用 https://download.eclipse.org/windowbuilder/latest/ ，原来的链接看上去失效了。测试挂代理最快。
+                </div>
+            </div>
+        </div>
+    </main>
+    <center><span style="color:gray;">黄猪官网&nbsp;<a style="color:#2196F3;" href="https://ypig.github.io/">ypig.github.io</a></span></center>
+</div>
+</body>
+<script src='https://ypig.github.io/styles/material.min.js'></script>
