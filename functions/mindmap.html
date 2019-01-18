@@ -1,77 +1,172 @@
+﻿<!DOCTYPE html>
 <html>
-    <head>
-        <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" />
-        <title>这里是猪猪的世界</title>
-        <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
-	<script src="https://ypig.github.io/styles/disableConsole.js"></script>
-        <script>
-        function is_weixin() { 
-                try{
-			window.vConsole.destroy()
-		}catch (e){}
-                /*var ua = window.navigator.userAgent.toLowerCase(); 
-                if (ua.match(/MicroMessenger/i) == 'micromessenger') { 
-                     console.log("ua is ok")
-                } else { 
-                     document.write("")
-                }*/
-	}
-        function getQueryString(name) {
-	        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
-	        var url=decodeURI(decodeURI(window.location.search))
-	        var r = url.substr(1).match(reg);
-	        if (r != null) return unescape(r[2]); return null;
-	}
-        $(document).ready(function() {
-		is_weixin()
-		eval(function(p,a,c,k,e,d){e=function(c){return(c<a?"":e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)d[e(c)]=k[c]||e(c);k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1;};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p;}('$(".a-9").8("<d c=\'b:2%;7:2%\' 3=\'1\' 6=\'0\' 5=\'0\' 4=\'0\' l=\'1\' k=\'p\' o=\'n://m.f.e/j/i/h.g\' />");',26,26,'|no|100|frameborder|marginheight|marginwidth|border|height|append|grid|mdl|width|style|iframe|io|github|html|mindmap|embed|functions|allowtransparency|scrolling|ypig|https|src|yes'.split('|'),0,{}));
-        });
+
+<head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="static/js/0a708c01bdf14a72b7a61dabdde478e1.js"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-73558830-1', { 'anonymize_ip': true });
 	</script>
-      <style>
-    body{
-      margin:0;
-      padding:0;
-    }
-   </style>
-    </head>
-	<!-- bing images https://api.isoyu.com/bing_images.php -->
-    <body style="background-image:url('');background-color:#FCFCFC;" oncontextmenu='return false' ondragstart='return false' onselectstart ='return false' onselect='document.selection.empty()' oncopy='document.selection.empty()' onbeforecopy='return false' onmouseup='document.selection.empty()'>
-<link rel='stylesheet prefetch' href='https://ypig.github.io/styles/material.indigo-pink.min.css'>
-<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
 
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-    <header class="mdl-layout__header" style="background-color:#2196F3;">
-        <div class="mdl-layout__header-row">
-            <!-- Title -->
-            <span class="mdl-layout-title">Ypiggy</span>
-            <!-- Add spacer, to align navigation to the right -->
-            <div class="mdl-layout-spacer"></div>
-            <!-- Search 
-            <form action="">
-                <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
-                    <label class="mdl-button mdl-js-button mdl-button--icon" for="fixed-header-drawer-exp">
-                        <i class="material-icons">search</i>
-                    </label>
-                    <div class="mdl-textfield__expandable-holder">
-                        <input class="mdl-textfield__input" type="text" name="search_name" id="fixed-header-drawer-exp" />
-                    </div>
+
+	<meta charset="utf-8">
+	<title>Text2MindMap</title>
+	<link rel="shortcut icon" type="image/png" href="favicon.png">
+
+	<link rel="stylesheet" href="static/css/customstyles.css">
+	<link rel="stylesheet" href="static/css/jquery-ui-1.10.3.custom.min.css">
+	<link rel="stylesheet" href="static/css/jquery.minicolors.css"/>
+	<script defer src="static/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="static/css/app.css">
+    <link rel="stylesheet" href="static/css/navbar.css">
+    <link rel="stylesheet" href="static/css/modal.css">
+    <link rel="stylesheet" href="static/css/document_title.css">
+    <link rel="stylesheet" href="static/css/editor.css">
+    <link rel="stylesheet" href="static/css/viewer.css">
+    <link rel="stylesheet" href="static/css/pane_resizer.css">
+	
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/jquery.minicolors.js"></script>
+    <script src="static/js/d3.min.js"></script>
+    <!-- <script src="static/js/jquery.minicolors.js"></script> -->
+    <!-- <script src="static/js/d3.min.js"></script> -->
+    <script src="static/js/kineticjs.js"></script>
+    <script src="static/js/jquery.cookie.min.js"></script>
+    <script src="static/js/difflib.js"></script>
+
+	<script type="text/javascript">
+        var viewcode = "";
+        var admincode = "";
+        var map = "";
+        var savingState = "unsaved";
+        var isOldBrowser = false;
+        var isIE = false;
+        var logged_in = "";
+        var userid = "";
+        var user = "";
+    </script>
+    <script src="static/js/mindmap.min.js"></script>
+    
+    <script src="static/js/unsaved_changes.js"></script>
+    <script src="static/js/settings.js"></script>
+    <script src="static/js/document_title.js"></script>
+    <script src="static/js/file_import.js"></script>
+    <script src="static/js/file_export.js"></script>
+    <script src="static/js/app_functions.js"></script>
+    <script src="static/js/navbar.js"></script>
+    <script src="static/js/modal.js"></script>
+    <script src="static/js/pane_resizer.js"></script>
+    <script src="static/js/shortcuts.js"></script>
+    <script src="static/js/main.js"></script>
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="navbar">
+			<ul>
+				<li class="navbar-item">
+					<div class="document-title-container">
+						<input class="document-title-input">
+						<div class="document-title-mirror"></div>
+					</div>
+				</li>
+				<li class="navbar-item navbar-button navbar-dropdown">
+					<a href="#">文件</a>
+					<ul class="dropdown-content">
+						<li><a href="#" id="file-new"><i class="fa fa-file fa-fw"></i>新建<span class="dropdown-shortcut">Ctrl+N</span></a></li>
+						<li><a href="#" id="file-open"><i class="fa fa-upload fa-fw"></i>打开...<span class="dropdown-shortcut">Ctrl+O</span></a></li>
+						<li><a href="#" id="file-save"><i class="fa fa-save fa-fw"></i>保存...<span class="dropdown-shortcut">Ctrl+S</span></a></li>
+						<li><a href="#" id="file-rename"><svg/>重命名...<span class="dropdown-shortcut"></span></a></li>
+					</ul>
+				</li>
+				<li class="navbar-item navbar-button navbar-dropdown">
+					<a href="#">脑图</a>
+					<ul class="dropdown-content">
+						<li><a href="#" id="mindmap-lock-all"><i class="fa fa-lock fa-fw"></i>锁定所有<span class="dropdown-shortcut"></span></a></li>
+						<li><a href="#" id="mindmap-unlock-all"><i class="fa fa-unlock fa-fw"></i>解锁所有<span class="dropdown-shortcut"></span></a></li>
+						<li class="dropdown-divider"></li>
+						<li><a href="#" id="file-preferences"><i class="fa fa-cogs fa-fw"></i>设置</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+
+		<div id="pane-container">
+			<div id="editor-pane">
+                <div id="editor">
+                        <div class="collapse-button" id="editor-collapse-button" style="visibility: visible;left: calc(100% - 29px);">
+                                <div>
+                                    <i class="fa fa-fw fa-chevron-left"></i>
+                                </div>
+                            </div>
+                            <textarea id="textArea" wrap="off" exp></textarea>
                 </div>
-            </form>-->
-
-        </div>
-    </header>
-    <div class="mdl-layout__drawer">
-        <span class="mdl-layout-title" style="color:#2196F3;">Ypig Inc.</span>
-        <nav class="mdl-navigation">
-            <a class="mdl-navigation__link" href="https://ypig.github.io/?isUpdateRead=true">Home</a>
-            <a class="mdl-navigation__link" href="https://ypig.github.io/functions/vpn">Vpn Service</a>
-        </nav>
-    </div>
-    <main class="mdl-layout__content">
-	    <div class="mdl-grid">
-                 <!-- Nothing right there Iframe will be built later -->
-	    </div>
-     </main>
-</div>
+			</div>
+			<div id="viewer-pane">
+				<div class="collapse-button" id="viewer-collapse-button" style="visibility: hidden;">
+					<div>
+						<i class="fa fa-fw fa-chevron-right"></i>
+					</div>
+				</div>
+				<div id="dragbar"></div>
+				<div id="viewer-container">
+					<div id="stageHolder"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal-container">
+		<div class="modal" id="settings-modal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<span class="modal-title">设置</span>
+						<button class="close-button close-modal">&times;</button>
+						<ul class="modal-tabs">
+							<li data-tab="setting-tab-general" class="active">常规设置</li>
+						</ul>
+					</div>
+					<div class="modal-body">
+						<div class="tab-content active" id="setting-tab-general">
+                            <form>
+								<div class="form-group">
+									<label class="control-label">移动后固定</label>
+									<div class="checkbox-control">
+										<input type="checkbox" id="lockAfterMoving" checked="true">
+										<label for="lockAfterMoving">节点被移动后固定位置</label>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label">颜色模式</label>
+									<select id="coloringMode">
+										<option value="2">分支</option>
+										<option value="1">级别</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label class="control-label">颜色</label>
+									<div id="colorsdiv" class="form-div"></div>
+								</div>
+                            </form>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button class="button close-modal">取消</button>
+						<button class="button dark" id="modal-settings-save">
+							<i class="fa fa-save fa-lg"></i>保存
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="modal-backdrop close-modal"></div>
+		</div>
+	</div>
+	<input id="file-input" type="file" accept=".txt">
 </body>
-<script src='https://ypig.github.io/styles/material.min.js'></script>
+<!-- https://github.com/tobloef/text2mindmap -->
+</html>
