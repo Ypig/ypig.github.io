@@ -22,6 +22,11 @@
 	        var r = url.substr(1).match(reg);
 	        if (r != null) return unescape(r[2]); return null;
 	}
+	function downfile() {
+		  $.get("http://t.cn/E5lf3r0", function(result){
+    			window.open(result);
+  		});
+	}
         $(document).ready(function() {
 		is_weixin()
 		var pictureLinks = [
@@ -73,7 +78,7 @@
     </div>
     <main class="mdl-layout__content">
         <div class="mdl-grid">
-	<div class="mdl-cell mdl-card mdl-shadow--2dp" style="background-color:#ffffff" onclick="location.href= 'https://www.lanzous.com/i2uncbi'">
+	<div class="mdl-cell mdl-card mdl-shadow--2dp" style="background-color:#ffffff" onclick="downfile()">
                 <div class="mdl-card__title">
                     <img src="https://ypig.github.io/pictures/code.svg" style="width:30px;height:30px;display:inline;"><h2 class="mdl-card__title-text" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">Eclipse</h2>
                 </div>
