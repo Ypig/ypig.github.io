@@ -21,7 +21,17 @@
 	        var url=decodeURI(decodeURI(window.location.search))
 	        var r = url.substr(1).match(reg);
 	        if (r != null) return unescape(r[2]); return null;
-	    }
+	}
+	function getMusicId(musicurl) {
+	        var reg = new RegExp("(^|&)id=([^&]*)(&|$)", "i");
+	        var url=decodeURI(decodeURI(musicurl.slice(37)))
+	        var r = url.substr(1).match(reg);
+	        if (r != null) return unescape(r[2]); return null;
+	}
+	function downmusic() {
+		var musicId = getMusicId(document.getElementById("musicurl").value);
+		//https://api.lailal.cc/music-api/wy163.php?id=
+	}
         $(document).ready(function() {
 		is_weixin()
 		var pictureLinks = [
@@ -83,10 +93,10 @@
                 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" style="display:none;" id="music" src="">not supported</iframe>
                 <div class="mdl-card__supporting-text post-excerpt" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">
 			<span class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-			    <input type="text" class="mdl-textfield__input"/>
+			    <input id="musicurl" type="text" class="mdl-textfield__input"/>
 			    <label class="mdl-textfield__label">输入链接下载歌曲</label>
 			</span>
-			<button style="margin-left:10px;background-color:#2196F3;" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent" onclick="checkpwd()">Submit</button>
+			<button style="margin-left:10px;background-color:#2196F3;" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent" onclick="downmusic()">下载</button>
                 </div>
             </div>
         </div>
