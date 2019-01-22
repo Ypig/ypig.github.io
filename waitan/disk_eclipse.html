@@ -24,15 +24,10 @@
 	}
 	function downfile() {
 		$.ajax({
-			url: 'https://www.lanzous.com/tp/i2uncbi',
+			url: 'https://api.lailal.cc/lanzou-api/?url=https://www.lanzous.com/i2uncbi',
 			type: "GET",
 			
 			success:function(result){
-			var oarr = new RegExp("|urlq = '(.+?)'|U");
-			var olink = $oarr[1];
-			var tarr = new RegExp("|urlq \\+ '(.*)'|U");
-			var tlink = $tarr[1][1];
-			var result = olink + tlink;
 			window.open(result);
   		});
 	}
