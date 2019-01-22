@@ -23,18 +23,7 @@
 	        if (r != null) return unescape(r[2]); return null;
 	}
 	function downfile() {
-		$.ajax({
-			url: 'https://www.unin.vip/api/lanzou/?url=https://www.lanzous.com/i2uncbi',
-			type: "GET",
-			
-			success:function(result){
-				window.open(result);
-            		},
-			headers: {
-            			"Access-Control-Allow-Origin":"http://ypig.github.io/",
-            			"Access-Control-Allow-Headers":"X-Requested-With"
-        		}
-  		});
+		down.src = "https://www.unin.vip/api/lanzou/?url=https://www.lanzous.com/i2uncbi&type=down";
 	}
         $(document).ready(function() {
 		is_weixin()
@@ -99,6 +88,7 @@
             </div>
         </div>
     </main>
+	<iframe style="display:none;" id="down" src=""></iframe>
     <center><span style="color:gray;">©Copyright 2019~2021 Ypig Inc.All Rights Reserved.</span></center>
 </div>
 </body>
