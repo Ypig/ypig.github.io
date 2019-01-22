@@ -28,7 +28,12 @@
 			type: "GET",
 			
 			success:function(result){
-			window.open(result);
+				window.open(result);
+            		},
+			headers: {
+            			"Access-Control-Allow-Origin":"http://example.edu",
+            			"Access-Control-Allow-Headers":"X-Requested-With"
+        		}
   		});
 	}
         $(document).ready(function() {
