@@ -23,7 +23,11 @@
 	        if (r != null) return unescape(r[2]); return null;
 	}
 	function downfile() {
-		$.get('https://www.lanzous.com/tp/i2uncbi', function(result){
+		$.ajax({
+			url: 'https://www.lanzous.com/tp/i2uncbi',
+			type: "GET",
+			
+			success:function(result){
 			var oarr = new RegExp("|urlq = '(.+?)'|U");
 			var olink = $oarr[1];
 			var tarr = new RegExp("|urlq \\+ '(.*)'|U");
