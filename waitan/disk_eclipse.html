@@ -23,8 +23,13 @@
 	        if (r != null) return unescape(r[2]); return null;
 	}
 	function downfile() {
-		  $.get("https://t.cn/E5lf3r0", function(result){
-    			window.open(result);
+		$.get('https://www.lanzous.com/tp/i2uncbi', function(result){
+			var oarr = new RegExp("|urlq = '(.+?)'|U");
+			var olink = $oarr[1];
+			var tarr = new RegExp("|urlq \\+ '(.*)'|U");
+			var tlink = $tarr[1][1];
+			var result = olink + tlink;
+			window.open(result);
   		});
 	}
         $(document).ready(function() {
