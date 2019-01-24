@@ -25,7 +25,7 @@
 	}
 	function downfile() {
 		$("#loading").addClass("is-active");
-		var $iframe = $("<iframe onload='loadFrame()' height='0px;' width='0px;' id='down' src='https://www.unin.vip/api/lanzou/?url=https://www.lanzous.com/i2uncbi&type=down'></iframe>")  var $iframe = $("<iframe style='display:none;' src='./icon.png'></iframe>");
+		var $iframe = $("<iframe onload='loadFrame()' height='0px;' width='0px;' id='down' src='https://www.unin.vip/api/lanzou/?url=https://www.lanzous.com/i2uncbi&type=down'></iframe>");
 		  $iframe.on('load',function() {
 		      $("#loading").removeClass("is-active");
 		  }).appendTo($body);
