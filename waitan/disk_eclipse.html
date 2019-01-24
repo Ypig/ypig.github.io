@@ -26,7 +26,7 @@
 	function downfile() {
 		$("#loading").addClass("is-active");
 		var $iframe = $("<iframe onload='loadFrame()' height='0px;' width='0px;' id='down' src='https://www.unin.vip/api/lanzou/?url=https://www.lanzous.com/i2uncbi&type=down'></iframe>").appendTo($('body'));
-		setTiemout(function() {
+		setTimeout(function() {
 			$("#loading").removeClass("is-active");
 		},7000);
 	}
