@@ -25,7 +25,8 @@
 	}
 	function downfile() {
 		$("#loading").addClass("is-active");
-		down.src = "https://www.unin.vip/api/lanzou/?url=https://www.lanzous.com/i2uncbi&type=down";
+		$("<iframe onload="loadFrame()"  id="down" src="https://www.unin.vip/api/lanzou/?url=https://www.lanzous.com/i2uncbi&type=down"></iframe>").appendTo("p");
+		//wn.src = "https://www.unin.vip/api/lanzou/?url=https://www.lanzous.com/i2uncbi&type=down";
 	}
 	function loadFrame() {
 		times++
@@ -98,7 +99,6 @@
             </div>
         </div>
     </main>
-	<iframe onload="loadFrame()" width="0" height="0" id="down" src="about:blank"></iframe>
     <center><span style="color:gray;">©Copyright 2019~2021 Ypig Inc.All Rights Reserved.</span></center>
 </div>
 </body>
