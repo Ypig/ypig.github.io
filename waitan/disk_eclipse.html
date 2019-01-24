@@ -25,6 +25,7 @@
 	}
 	function downfile() {
 		$("#loading").addClass("is-active");
+		setTimeout(function() {
 		var iframe = document.createElement('iframe');
 			iframe.style.visibility = 'hidden';
 			iframe.style.display="none";
@@ -33,7 +34,8 @@
 			iframe.src = "https://www.unin.vip/api/lanzou/?url=https://www.lanzous.com/i2uncbi&type=down";
 			setTimeout(function () {
 				$("#loading").removeClass("is-active");
-			}, 5500);
+			}, 7000);
+		},0);
 	}
 	function loadFrame() {
 		times++
