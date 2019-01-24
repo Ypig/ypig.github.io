@@ -31,7 +31,7 @@
 	function downmusic() {
 		var musicId = getMusicId(document.getElementById("musicurl").value);
 		//var $iframe = $("<iframe onload='loadFrame()' height='0px;' width='0px;' id='down' src='http://music.163.com/song/media/outer/url?id="+ musicId +".mp3'></iframe>").appendTo($('body'));
-		$.get("http://music.163.com/song/media/outer/url?id=" + musicId + ".mp3"function(result,status){
+		$.get("http://music.163.com/song/media/outer/url?id=" + musicId + ".mp3",function(result,status){
 			player.src = result;
 		});
 	}
