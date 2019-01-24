@@ -3,12 +3,14 @@
     <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" />
     <title>embed loading</title>
   </head>
-  
+    setTimeout(function() {
+      loading.style.display = "block";
+    },800);
   <body>
   <link rel='stylesheet prefetch' href='https://ypig.github.io/styles/material.indigo-pink.min.css'>
   <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
     
-  <span id="loading" class="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active"></span>
+  <span id="loading" style="display:none;" class="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active"></span>
     
   </body>
   
