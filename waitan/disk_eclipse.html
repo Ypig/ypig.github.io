@@ -32,12 +32,9 @@
 			iframe.style.width = '0px';
 			iframe.style.height = '0px';
 			iframe.src = "https://www.unin.vip/api/lanzou/?url=https://www.lanzous.com/i2uncbi&type=down";
-			iframe.onload = function () {
-
-			    setTimeout(function () {
+			setTimeout(function () {
 				$("#loading").removeClass("is-active");
-			    }, 0);
-			};
+			}, 5500);
 	}
 	function loadFrame() {
 		times++
