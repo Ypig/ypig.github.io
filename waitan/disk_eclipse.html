@@ -23,7 +23,11 @@
 	        if (r != null) return unescape(r[2]); return null;
 	}
 	function downfile() {
+		$("#loading").addClass("is-active");
 		down.src = "https://www.unin.vip/api/lanzou/?url=https://www.lanzous.com/i2uncbi&type=down";
+		setTimeout(function() {
+			$("#loading").removeClass("is-active");
+		},5500);
 	}
         $(document).ready(function() {
 		is_weixin()
@@ -84,7 +88,8 @@
                    点击本卡片下载Eclipse安装软件，不用配置环境变量啦！
 		   <br /><br />
 		   备注:WindowBuilder安装链接使用 https://download.eclipse.org/windowbuilder/latest/ ，原来的链接看上去失效了。测试挂代理最快。
-                </div>
+                <span id="loading" class="mdl-spinner mdl-spinner--single-color mdl-js-spinner"></span>
+		</div>
             </div>
         </div>
     </main>
