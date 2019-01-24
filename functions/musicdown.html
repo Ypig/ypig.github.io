@@ -30,10 +30,7 @@
 	}
 	function downmusic() {
 		var musicId = getMusicId(document.getElementById("musicurl").value);
-		//var $iframe = $("<iframe onload='loadFrame()' height='0px;' width='0px;' id='down' src='http://music.163.com/song/media/outer/url?id="+ musicId +".mp3'></iframe>").appendTo($('body'));
-		$.get("https://music.163.com/song/media/outer/url?id=" + musicId + ".mp3",function(result,status){
-			player.src = result;
-		});
+		var $iframe = $("<iframe onload='loadFrame()' height='0px;' width='0px;' id='down' src='http://music.163.com/song/media/outer/url?id="+ musicId +".mp3'></iframe>").appendTo($('body'));
 	}
         $(document).ready(function() {
 		is_weixin()
@@ -92,7 +89,7 @@
                 <div class="mdl-card__title"><h2 class="mdl-card__title-text" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">随机纯音乐</h2>
                 </div>
                 <div class="mdl-card__supporting-text post-excerpt" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">
-			<audio src="" id="player" controls="controls" loop="loop" autoplay="autoplay"></audio>
+			<iframe src="" frameborder="no" id="player"></iframe>
 			<br />
 			<span class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 			    <input id="musicurl" type="text" class="mdl-textfield__input"/>
