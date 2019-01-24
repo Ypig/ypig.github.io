@@ -24,7 +24,6 @@
 	}
 	function downmusic() {
 		window.open("https://ypig.github.io/functions/musicdown.html");
-		//https://api.lailal.cc/music-api/wy163.php?id=
 	}
         $(document).ready(function() {
 		is_weixin()
@@ -40,7 +39,7 @@
 			"-moz-background-size":"100% 100%"
 		};
 		music.src = unescape("%68%74%74%70%73%3a%2f%2f%75%6e%69%6e%2e%76%69%70%2f%61%70%69%2f%6d%75%73%69%63%2f%63%79%79%2f%61%70%69%2e%70%68%70");
-        	loading.style = "";
+        	loading.style.display = "block";
 		setTimeout(function() {
 			music.style.display = "block";
 			$("#loading").removeClass("is-active");
@@ -89,7 +88,7 @@
                 <div class="mdl-card__title"><h2 class="mdl-card__title-text" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">随机纯音乐</h2>
                 </div>
                 <div class="mdl-card__supporting-text post-excerpt" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">
-			<span style="display:none;" id="loading" class="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active"></span> <br />
+			<span style="display:none;margin-left:10px;" id="loading" class="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active"></span> <br />
                 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" style="display:none;" id="music" src="">not supported</iframe>
 			<button style="margin-left:10px;background-color:#2196F3;" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent" onclick="downmusic()">歌曲解析</button>
                 </div>
