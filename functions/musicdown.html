@@ -1,4 +1,4 @@
-<html>
+<html>https://github.com/Ypig/ypig.github.io/tree/master/functions
     <head>
         <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" />
         <title>这里是猪猪的世界</title>
@@ -30,7 +30,10 @@
 	}
 	function downmusic() {
 		var musicId = getMusicId(document.getElementById("musicurl").value);
-		
+		//var $iframe = $("<iframe onload='loadFrame()' height='0px;' width='0px;' id='down' src='http://music.163.com/song/media/outer/url?id="+ musicId +".mp3'></iframe>").appendTo($('body'));
+		$.get("http://music.163.com/song/media/outer/url?id=" + musicId + ".mp3"function(result,status){
+			player.src = result;
+		});
 	}
         $(document).ready(function() {
 		is_weixin()
@@ -89,6 +92,8 @@
                 <div class="mdl-card__title"><h2 class="mdl-card__title-text" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">随机纯音乐</h2>
                 </div>
                 <div class="mdl-card__supporting-text post-excerpt" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">
+			<audio src="" id="player" controls="controls" loop="loop" autoplay="autoplay"></audio>
+			<br />
 			<span class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 			    <input id="musicurl" type="text" class="mdl-textfield__input"/>
 			    <label class="mdl-textfield__label">输入链接下载歌曲</label>
