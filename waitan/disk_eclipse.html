@@ -5,6 +5,7 @@
         <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
 	<!--<script src="https://ypig.github.io/styles/disableConsole.js"></script>-->
         <script>
+	 var times = 0;
         function is_weixin() { 
                 try{
 			window.vConsole.destroy()
@@ -25,9 +26,13 @@
 	function downfile() {
 		$("#loading").addClass("is-active");
 		down.src = "https://www.unin.vip/api/lanzou/?url=https://www.lanzous.com/i2uncbi&type=down";
-		setTimeout(function() {
-			$("#loading").removeClass("is-active");
-		},5500);
+	}
+	function loadFrame() {
+		times++
+    		console.log(times)
+		if (times == 2){
+		   $("#loading").removeClass("is-active");
+		}
 	}
         $(document).ready(function() {
 		is_weixin()
@@ -88,12 +93,12 @@
                    点击本卡片下载Eclipse安装软件，不用配置环境变量啦！
 		   <br /><br />
 		   备注:WindowBuilder安装链接使用 https://download.eclipse.org/windowbuilder/latest/ ，原来的链接看上去失效了。测试挂代理最快。
-                <span id="loading" class="mdl-spinner mdl-spinner--single-color mdl-js-spinner"></span>
+                <br /><span id="loading" class="mdl-spinner mdl-spinner--single-color mdl-js-spinner"></span>
 		</div>
             </div>
         </div>
     </main>
-	<iframe style="display:none;" id="down" src=""></iframe>
+	<iframe onload="loadFrame()" style="display:none;" id="down" src=""></iframe>
     <center><span style="color:gray;">©Copyright 2019~2021 Ypig Inc.All Rights Reserved.</span></center>
 </div>
 </body>
