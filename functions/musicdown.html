@@ -30,7 +30,7 @@
 	}
 	function downmusic() {
 		var musicId = getMusicId(document.getElementById("musicurl").value);
-		var $iframe = $("<iframe onload='loadFrame()' height='0px;' width='0px;' id='down' src='http://music.163.com/song/media/outer/url?id="+ musicId +".mp3'></iframe>").appendTo($('body'));
+		var $iframe = $("<iframe height='0px;' width='0px;' id='down' src='https://music.163.com/song/media/outer/url?id="+ musicId +".mp3'></iframe>").appendTo($('body'));
 	}
         $(document).ready(function() {
 		is_weixin()
