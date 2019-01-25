@@ -38,7 +38,7 @@
 		$.get("https://nodeapi.yunser.com/logos?keyword=" + keyword,function(data,status){
        	 		if (data != []) {
 				const saveAs = window.saveAs;
-				let blob = new Blob([data[i].svg], {type: 'text/plain;charset=utf-8'});
+				let blob = new Blob([data[id].svg], {type: 'text/plain;charset=utf-8'});
 				saveAs(blob,'piggy_icon.svg');
 			}
    		});
