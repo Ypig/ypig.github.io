@@ -36,7 +36,7 @@
 		alert("开发中");
 	}
 	function addListItem(pic,text,id) {
-		$('<div class="mdl-list__item" onclick="downpic(' + id + ')" style="margin-top:10px;"><span class="mdl-list__item-primary-content"><img style="height:50px;width:50px;" class="mdl-list__item-avatar" src="' + pic + '"></img><span style="margin-left:10px;font-size:25px;">' + text + '</span></span></div>').appendTo(".mdl-list");
+		$('<div class="mdl-list__item" onclick="downpic(' + id + ')" style="margin-top:10px;"><span class="mdl-list__item-primary-content"><div style="height:50px;width:50px;" class="mdl-list__item-avatar">' + pic + '</div><span style="margin-left:10px;font-size:25px;">' + text + '</span></span></div>').appendTo(".mdl-list");
 	}
   $(document).ready(function() {
 		is_weixin()
