@@ -27,7 +27,7 @@
 		$.get("https://nodeapi.yunser.com/logos?keyword=" + keyword,function(data,status){
        	 		if (data != []) {
 				for (var i = 0;i < data.length;i ++ ) {
-					addListItem(data[i][svg],data[i][title]);
+					addListItem(data[i].svg,data[i].title);
 				}
 			}
    		});
