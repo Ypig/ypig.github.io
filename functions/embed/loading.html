@@ -6,6 +6,7 @@
   <script>
     setTimeout(function() {
       loading.style.display = "";
+      text.style.display = "";
     },800);
    </script>
   <body>
@@ -15,7 +16,7 @@
     <center>
       <div style="position: relative;">
         <span id="loading" style="display:none;" class="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active"></span>
-        <span style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;position: absolute;top: 50%;transform: translate(0, -50%);margin-left:10px;">页面加载中......</span>
+        <span id="text" style="display:none;font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;position: absolute;top: 50%;transform: translate(0, -50%);margin-left:10px;">页面加载中......</span>
       </div>
     </center>
   </body>
