@@ -29,6 +29,8 @@
 				for (var i = 0;i < data.length;i ++ ) {
 					addListItem(data[i].svg,data[i].title,i);
 				}
+				$("svg").attr('wdith','100');
+				$("svg").attr('height','100');
 			}
    		});
 	}
@@ -36,7 +38,7 @@
 		alert("开发中");
 	}
 	function addListItem(pic,text,id) {
-		$('<div class="mdl-list__item" onclick="downpic(' + id + ')" style="margin-top:10px;"><span class="mdl-list__item-primary-content"><div style="height:50px;width:50px;" class="mdl-list__item-avatar">' + pic + '</div><span style="margin-left:10px;font-size:25px;">' + text + '</span></span></div>').appendTo(".mdl-list");
+		$('<div class="mdl-list__item" onclick="downpic(' + id + ')" style="margin-top:10px;"><span class="mdl-list__item-primary-content">' + pic + '<span style="margin-left:10px;font-size:25px;">' + text + '</span></span></div>').appendTo(".mdl-list");
 	}
   $(document).ready(function() {
 		is_weixin()
