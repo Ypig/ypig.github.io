@@ -37,9 +37,14 @@
 	function downpic(id,keyword) {
 		$.get("https://nodeapi.yunser.com/logos?keyword=" + keyword,function(data,status){
        	 		if (data != []) {
-				const saveAs = window.saveAs;
-				let blob = new Blob([data[id].svg], {type: 'text/plain;charset=utf-8'});
-				saveAs(blob,'piggy_icon.svg');
+				var blobUrl = window.URL.createObjectURL(new Blob([data[id].svg], {type: 'text/plain;charset=utf-8'}));
+				
+				var link = document.createElement('a');
+				link.style.display = 'none';
+				link.href = url;
+				link.setAttribute('download', 'icon_ypig.github.io.svg');
+				document.body.appendChild(link);
+				link.click();
 			}
    		});
 	}
