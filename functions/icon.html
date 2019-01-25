@@ -22,8 +22,8 @@
 	        var r = url.substr(1).match(reg);
 	        if (r != null) return unescape(r[2]); return null;
 	}
-	function searchicon() {
-		var keyword = document.getElementById("keyword").value;
+	function searchicon(keyword) {
+		//var keyword = document.getElementById("keyword").value;
 		$.get("https://nodeapi.yunser.com/logos?keyword=" + keyword,function(data,status){
        	 		if (data != []) {
 				for (var i = 0;i < data.length;i ++ ) {
@@ -64,6 +64,9 @@
 			"background-size":"100% 100%",
 			"-moz-background-size":"100% 100%"
 		};
+	  	if (getQueryString("search_keyword")) {
+			searchicon(getQueryString("search_keyword"));
+		}
 	});
 	</script>
     </head>
