@@ -26,7 +26,7 @@
 	  function searchicon(keyword) {
   		//var keyword = document.getElementById("keyword").value;
   		$.get("https://nodeapi.yunser.com/logos?keyword=" + keyword,function(data,status){
-        if (data != []) {
+        if (data[0].title]) {
   				for (var i = 0;i < data.length;i ++ ) {
   					addListItem(data[i].svg,data[i].title,i,keyword);
   			 }
