@@ -10,13 +10,15 @@
       try{
 			     window.vConsole.destroy()
 		  }catch (e){}
-                /*var ua = window.navigator.userAgent.toLowerCase();
-                if (ua.match(/MicroMessenger/i) == 'micromessenger') {
-                     console.log("ua is ok")
-                } else {
-                     document.write("")
-                }*/
 	    }
+    function detectUa() {
+      var ua = window.navigator.userAgent.toLowerCase();
+      if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+           return true;
+      } else {
+           return false;
+      }
+    }
     function getQueryString(name) {
 	        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
 	        var url=decodeURI(decodeURI(window.location.search))
@@ -40,18 +42,22 @@
      	});
    	}
 	function downpic(id,keyword) {
-		$.get("https://nodeapi.yunser.com/logos?keyword=" + keyword,function(data,status){
-       	if (data != []) {
-				var blobUrl = window.URL.createObjectURL(new Blob([data[id].svg], {type: 'text/plain;charset=utf-8'}));
+    if (detectUa) {
+      location.href = "https://ypig.tk/alert/normalbox?title=%E6%8F%90%E7%A4%BA&content=%E5%BE%88%E6%8A%B1%E6%AD%89%EF%BC%8C%E5%BE%AE%E4%BF%A1%E5%86%85%E6%9A%82%E4%B8%8D%E6%94%AF%E6%8C%81%E4%B8%8B%E8%BD%BD%EF%BC%8C%E8%AF%B7%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E6%93%8D%E4%BD%9C%E3%80%82";
+    }else {
+  		$.get("https://nodeapi.yunser.com/logos?keyword=" + keyword,function(data,status){
+         	if (data != []) {
+  				var blobUrl = window.URL.createObjectURL(new Blob([data[id].svg], {type: 'text/plain;charset=utf-8'}));
 
-				var link = document.createElement('a');
-				link.style.display = 'none';
-				link.href = blobUrl;
-				link.setAttribute('download', data[id].title + '_ypig.tk.svg');
-				document.body.appendChild(link);
-				link.click();
-			}
-   		});
+  				var link = document.createElement('a');
+  				link.style.display = 'none';
+  				link.href = blobUrl;
+  				link.setAttribute('download', data[id].title + '_ypig.tk.svg');
+  				document.body.appendChild(link);
+  				link.click();
+  			}
+     	});
+    }
 	}
 	function addListItem(pic,text,id,key) {
 		$('<tr> style="margin-top:10px;"><td>' + pic + '</td><td style="margin-left:10px;font-size:25px;font-family:"Microsoft YaHei", Helvetica, Arial, sans-serif;">' + text + '</td><td><button onclick="downpic(' + id + "," + "'" + key + "'" + ')" style="margin-left:10px;background-color:#2196F3;" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent">下载图标</button></td></tr>').appendTo(".iconlist");
@@ -60,7 +66,7 @@
     $("<span style='margin-left:10px;font-size:25px;'>" + text + "</span>").appendTo(".iconlist");
   }
   $(document).ready(function() {
-		is_weixin()
+		is_weixin();
 		var pictureLinks = [
 			"https://ws1.sinaimg.cn/large/0072Lfvtly1fyfbcc8crjj30xc0m6hdt.jpg",
 			"https://ws1.sinaimg.cn/large/0072Lfvtly1fyfbgcwt2nj31hc0u04qr.jpg"
