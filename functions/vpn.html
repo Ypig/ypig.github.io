@@ -1,103 +1,19 @@
 <html>
-
-<head>
-  <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" />
-  <title>这里是猪猪的世界</title>
-  <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
-  <script src="https://ypig.tk/styles/disableConsole.js"></script>
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" />
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <title>embed loading</title>
+  </head>
   <script>
-    function is_weixin() {
-      try {
-        window.vConsole.destroy()
-      } catch (e) {}
-      var ua = window.navigator.userAgent.toLowerCase();
-      if (ua.match(/MicroMessenger/i) == 'micromessenger') {
-        console.log("ua is ok")
-      } else {
-        /*document.write("");
-        location.href = "https://mp.weixin.qq.com/cgi-bin/loginpage?mod=wap";*/
-      }
-    }
+    setTimeout(function() {
+      var notice = "https://ypig.tk/alert/normalbox?title=%E5%81%9C%E7%94%A8%E9%80%9A%E7%9F%A5&content=%E7%94%B1%E4%BA%8E%E6%94%BF%E7%AD%96%E5%8E%9F%E5%9B%A0%EF%BC%8C%E6%9C%AC%E5%8A%9F%E8%83%BD%E5%B7%B2%E5%81%9C%E7%94%A8%EF%BC%8C%E6%84%9F%E8%B0%A2%E6%82%A8%E7%9A%84%E5%A4%A7%E5%8A%9B%E6%94%AF%E6%8C%81";
+      location.href = notice;
+    },1);
+   </script>
+  <body>
+    <link rel='stylesheet prefetch' href='https://ypig.tk/styles/material.indigo-pink.min.css'>
+    <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+  </body>
 
-    function getQueryString(name) {
-      var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
-      var url = decodeURI(decodeURI(window.location.search))
-      var r = url.substr(1).match(reg);
-      if (r != null) return unescape(r[2]);
-      return null;
-    }
-    $(document).ready(function() {
-      is_weixin()
-      var pictureLinks = [
-        "https://ws1.sinaimg.cn/large/0072Lfvtly1fyfbcc8crjj30xc0m6hdt.jpg",
-        "https://ws1.sinaimg.cn/large/0072Lfvtly1fyfbgcwt2nj31hc0u04qr.jpg"
-      ];
-      var cssStyles = {
-        "background-image": "url('" + pictureLinks[Math.floor((Math.random() * 2) + 1) - 1] + "')",
-        "background-color": "#000000",
-        "background-repeat": "no-repeat",
-        "background-size": "100% 100%",
-        "-moz-background-size": "100% 100%"
-      };
-      //$(document.body).css(cssStyles)
-    });
-  </script>
-  <style>
-    .list-text {
-      color: #2196F3;
-    }
-  </style>
-</head>
-<!-- Bing Background:https://api.isoyu.com/bing_images.php -->
-
-<body style="background-image:url('');background-color:#FCFCFC;" oncontextmenu='return false' ondragstart='return false' onselectstart='return false' onselect='document.selection.empty()' oncopy='document.selection.empty()' onbeforecopy='return false'
-  onmouseup='document.selection.empty()'>
-  <link rel='stylesheet prefetch' href='https://ypig.tk/styles/material.indigo-pink.min.css'>
-  <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
-
-  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-    <header class="mdl-layout__header" style="background-color:#2196F3;">
-      <div class="mdl-layout__header-row">
-        <!-- Title -->
-        <span class="mdl-layout-title">Ypiggy</span>
-        <!-- Add spacer, to align navigation to the right -->
-        <div class="mdl-layout-spacer"></div>
-        <!-- Search -
-
-            <form action="">
-                <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
-                    <label class="mdl-button mdl-js-button mdl-button--icon" for="fixed-header-drawer-exp">
-                        <i class="material-icons">search</i>
-                    </label>
-                    <div class="mdl-textfield__expandable-holder">
-                        <input class="mdl-textfield__input" type="text" name="search_name" id="fixed-header-drawer-exp" />
-                    </div>
-                </div>
-            </form>-->
-
-      </div>
-    </header>
-  </div>
-  <div class="mdl-layout__drawer">
-    <span class="mdl-layout-title" style="color:#2196F3;">Ypig Inc.</span>
-    <nav class="mdl-navigation">
-      <a class="mdl-navigation__link" href="https://ypig.tk/?isUpdateRead=true">Home</a>
-      <a class="mdl-navigation__link" href="https://ypig.tk/functions/vpn">Vpn Service</a>
-    </nav>
-  </div>
-  <main class="mdl-layout__content">
-    <div class="mdl-grid">
-      <div class="mdl-cell mdl-card mdl-shadow--2dp">
-        <div class="mdl-card__title">
-          <h2 class="mdl-card__title-text" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">功能停用通知</h2>
-        </div>
-        <div class="mdl-card__supporting-text post-excerpt">
-          <p>由于政策原因，本功能已停用，感谢您的大力支持</p>
-        </div>
-      </div>
-    </div>
-  </main>
-</body>
-<script src='https://ypig.tk/styles/material.min.js'></script>
-
+  <script src='https://ypig.tk/styles/material.min.js'></script>
 </html>
