@@ -29,9 +29,10 @@
         if (data != []) {
   				for (var i = 0;i < data.length;i ++ ) {
   					addListItem(data[i].svg,data[i].title,i,keyword);
-  			}
+  			 }
   				$("svg").attr('width','100');
   				$("svg").attr('height','100');
+          $("#loading").removeClass("is-active");
   			}else {
           addTipItem("没有图标");
         }
@@ -39,7 +40,7 @@
    	}
 	function downpic(id,keyword) {
 		$.get("https://nodeapi.yunser.com/logos?keyword=" + keyword,function(data,status){
-       	 		if (data != []) {
+       	if (data != []) {
 				var blobUrl = window.URL.createObjectURL(new Blob([data[id].svg], {type: 'text/plain;charset=utf-8'}));
 
 				var link = document.createElement('a');
@@ -70,7 +71,8 @@
 			"background-size":"100% 100%",
 			"-moz-background-size":"100% 100%"
 		};
-	  	if (getQueryString("search_keyword")) {
+	  if (getQueryString("search_keyword")) {
+      $("#loading").addClass("is-active");
 			searchicon(getQueryString("search_keyword"));
 		}
 	});
@@ -135,13 +137,14 @@
           </div>
           <div class="mdl-card__supporting-text post-excerpt" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">
             <!-- list start -->
-            <table border="0" class="iconlist">
+            <table border="0" class="iconlist" style="display:none;">
               <tr>
                 <th>图片</th>
                 <th>名称</th>
                 <th>链接</th>
               </tr>
             </table>
+            <span id="loading" class="mdl-spinner mdl-spinner--single-color mdl-js-spinner"></span>
             <!-- list over -->
           </div>
         </div>
