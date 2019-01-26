@@ -42,7 +42,7 @@
      	});
    	}
 	function downpic(id,keyword) {
-    if (detectUa) {
+    if (detectUa()) {
       location.href = "https://ypig.tk/alert/normalbox?title=%E6%8F%90%E7%A4%BA&content=%E5%BE%88%E6%8A%B1%E6%AD%89%EF%BC%8C%E5%BE%AE%E4%BF%A1%E5%86%85%E6%9A%82%E4%B8%8D%E6%94%AF%E6%8C%81%E4%B8%8B%E8%BD%BD%EF%BC%8C%E8%AF%B7%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E6%93%8D%E4%BD%9C%E3%80%82";
     }else {
   		$.get("https://nodeapi.yunser.com/logos?keyword=" + keyword,function(data,status){
