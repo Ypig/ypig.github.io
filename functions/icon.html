@@ -1,39 +1,42 @@
 <html>
-    <head>
-        <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" />
-        <title>这里是猪猪的世界</title>
-        <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
-	<script src="https://ypig.tk/styles/disableConsole.js"></script>
-        <script>
-        function is_weixin() {
-                try{
-			window.vConsole.destroy()
-		}catch (e){}
+
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" />
+  <title>这里是猪猪的世界</title>
+  <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+  <script src="https://ypig.tk/styles/disableConsole.js"></script>
+  <script>
+    function is_weixin() {
+      try{
+			     window.vConsole.destroy()
+		  }catch (e){}
                 /*var ua = window.navigator.userAgent.toLowerCase();
                 if (ua.match(/MicroMessenger/i) == 'micromessenger') {
                      console.log("ua is ok")
                 } else {
                      document.write("")
                 }*/
-	}
-        function getQueryString(name) {
+	    }
+    function getQueryString(name) {
 	        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
 	        var url=decodeURI(decodeURI(window.location.search))
 	        var r = url.substr(1).match(reg);
 	        if (r != null) return unescape(r[2]); return null;
-	}
-	function searchicon(keyword) {
-		//var keyword = document.getElementById("keyword").value;
-		$.get("https://nodeapi.yunser.com/logos?keyword=" + keyword,function(data,status){
-       	 		if (data != []) {
-				for (var i = 0;i < data.length;i ++ ) {
-					addListItem(data[i].svg,data[i].title,i,keyword);
-				}
-				$("svg").attr('width','100');
-				$("svg").attr('height','100');
-			}
-   		});
-	}
+	  }
+	  function searchicon(keyword) {
+  		//var keyword = document.getElementById("keyword").value;
+  		$.get("https://nodeapi.yunser.com/logos?keyword=" + keyword,function(data,status){
+        if (data != []) {
+  				for (var i = 0;i < data.length;i ++ ) {
+  					addListItem(data[i].svg,data[i].title,i,keyword);
+  			}
+  				$("svg").attr('width','100');
+  				$("svg").attr('height','100');
+  			}else {
+          addTipItem("没有图标");
+        }
+     	});
+   	}
 	function downpic(id,keyword) {
 		$.get("https://nodeapi.yunser.com/logos?keyword=" + keyword,function(data,status){
        	 		if (data != []) {
@@ -51,6 +54,9 @@
 	function addListItem(pic,text,id,key) {
 		$('<div class="mdl-list__item" style="margin-top:10px;"><span class="mdl-list__item-primary-content">' + pic + '<span style="margin-left:10px;font-size:25px;">' + text + '</span><button onclick="downpic(' + id + "," + "'" + key + "'" + ')" style="margin-left:10px;background-color:#2196F3;" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent">下载图标</button></span></div>').appendTo(".mdl-list");
 	}
+  function addTipItem(text) {
+    $("<span style='margin-left:10px;font-size:25px;''>" + text + "</span>");
+  }
   $(document).ready(function() {
 		is_weixin()
 		var pictureLinks = [
@@ -69,20 +75,22 @@
 		}
 	});
 	</script>
-    </head>
-	<!-- bing images https://api.isoyu.com/bing_images.php -->
-    <body style="background-image:url('');background-color:#FCFCFC;" oncontextmenu='return false' ondragstart='return false' onselectstart ='return false' onselect='document.selection.empty()' oncopy='document.selection.empty()' onbeforecopy='return false' onmouseup='document.selection.empty()'>
-<link rel='stylesheet prefetch' href='https://ypig.tk/styles/material.indigo-pink.min.css'>
-<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+</head>
+<!-- bing images https://api.isoyu.com/bing_images.php -->
 
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+<body style="background-image:url('');background-color:#FCFCFC;" oncontextmenu='return false' ondragstart='return false' onselectstart='return false' onselect='document.selection.empty()' oncopy='document.selection.empty()' onbeforecopy='return false'
+  onmouseup='document.selection.empty()'>
+  <link rel='stylesheet prefetch' href='https://ypig.tk/styles/material.indigo-pink.min.css'>
+  <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
     <header class="mdl-layout__header" style="background-color:#2196F3;">
-        <div class="mdl-layout__header-row">
-            <!-- Title -->
-            <span class="mdl-layout-title">Ypiggy</span>
-            <!-- Add spacer, to align navigation to the right -->
-            <div class="mdl-layout-spacer"></div>
-            <!-- Search
+      <div class="mdl-layout__header-row">
+        <!-- Title -->
+        <span class="mdl-layout-title">Ypiggy</span>
+        <!-- Add spacer, to align navigation to the right -->
+        <div class="mdl-layout-spacer"></div>
+        <!-- Search
             <form action="">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
                     <label class="mdl-button mdl-js-button mdl-button--icon" for="fixed-header-drawer-exp">
@@ -94,45 +102,48 @@
                 </div>
             </form>-->
 
-        </div>
+      </div>
     </header>
     <div class="mdl-layout__drawer">
-        <span class="mdl-layout-title" style="color:#2196F3;">Ypig Inc.</span>
-        <nav class="mdl-navigation">
-            <a class="mdl-navigation__link" href="https://ypig.tk/?isUpdateRead=true">Home</a>
-            <a class="mdl-navigation__link" href="https://ypig.tk/functions/vpn">Vpn Service</a>
-        </nav>
+      <span class="mdl-layout-title" style="color:#2196F3;">Ypig Inc.</span>
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="https://ypig.tk/?isUpdateRead=true">Home</a>
+        <a class="mdl-navigation__link" href="https://ypig.tk/functions/vpn">Vpn Service</a>
+      </nav>
     </div>
     <main class="mdl-layout__content">
-        <div class="mdl-grid">
-            <!--<div class="mdl-cell mdl-card mdl-shadow--2dp mdl-cell--6-col-desktop mdl-cell--4-col-tablet mdl-cell--2-col-phone" style="background-image:url('https://t.cn/E5lQLkz');webkit-background-size: cover;background-size: cover;">
+      <div class="mdl-grid">
+        <!--<div class="mdl-cell mdl-card mdl-shadow--2dp mdl-cell--6-col-desktop mdl-cell--4-col-tablet mdl-cell--2-col-phone" style="background-image:url('https://t.cn/E5lQLkz');webkit-background-size: cover;background-size: cover;">
             </div>-->
-	    <div class="mdl-cell mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone" style="background-color:#ffffff">
-                <div class="mdl-card__title"><h2 class="mdl-card__title-text" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">品牌图标搜索</h2>
-                </div>
-                <div class="mdl-card__supporting-text post-excerpt" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">
-			<form action="">
-				<span class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-			    		<input id="keyword" autocomplete="off" type="text" name="search_keyword" class="mdl-textfield__input"/>
-			    		<label class="mdl-textfield__label">搜索图标......</label>
-				</span>
-			<button type="submit" style="margin-left:10px;background-color:#2196F3;" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent" onclick="searchicon()">搜索</button>
-                	</form>
-		</div>
-            </div>
-	    <div class="mdl-cell mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone" style="background-color:#ffffff">
-                <div class="mdl-card__title"><h2 class="mdl-card__title-text" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">查找结果</h2>
-                </div>
-                <div class="mdl-card__supporting-text post-excerpt" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">
-			<!-- list start -->
-			<div class="mdl-list">
-			</div>
-			<!-- list over -->
-		</div>
-            </div>
+        <div class="mdl-cell mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone" style="background-color:#ffffff">
+          <div class="mdl-card__title">
+            <h2 class="mdl-card__title-text" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">品牌图标搜索</h2>
+          </div>
+          <div class="mdl-card__supporting-text post-excerpt" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">
+            <form action="">
+              <span class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input id="keyword" autocomplete="off" type="text" name="search_keyword" class="mdl-textfield__input" />
+                <label class="mdl-textfield__label">搜索图标......</label>
+              </span>
+              <button type="submit" style="margin-left:10px;background-color:#2196F3;" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent" onclick="searchicon()">搜索</button>
+            </form>
+          </div>
         </div>
+        <div class="mdl-cell mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone" style="background-color:#ffffff">
+          <div class="mdl-card__title">
+            <h2 class="mdl-card__title-text" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">查找结果</h2>
+          </div>
+          <div class="mdl-card__supporting-text post-excerpt" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">
+            <!-- list start -->
+            <div class="mdl-list">
+            </div>
+            <!-- list over -->
+          </div>
+        </div>
+      </div>
     </main>
-</div>
+  </div>
 </body>
 <script src='https://ypig.tk/styles/material.min.js'></script>
+
 </html>
