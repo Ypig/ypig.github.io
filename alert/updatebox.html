@@ -1,61 +1,66 @@
 <html>
-    <head>
-        <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" />
-        <title>这里是猪猪的世界</title>
-        <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
-	<script src="https://ypig.tk/styles/disableConsole.js"></script>
-        <script>
-	function is_weixin() { 
-                try{
-			window.vConsole.destroy()
-		}catch (e){}
-                /*var ua = window.navigator.userAgent.toLowerCase(); 
-                if (ua.match(/MicroMessenger/i) == 'micromessenger') { 
-                     console.log("ua is ok")
-                } else { 
-                     document.write("请在微信内打开")
-                }*/
-	}
-        function getQueryString(name) {
-	        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
-	        var url=decodeURI(decodeURI(window.location.search))
-	        var r = url.substr(1).match(reg);
-	        if (r != null) return unescape(r[2]); return null;
-	    }
-        $(document).ready(function() {
-		is_weixin()
-		var pictureLinks = [
-			"https://ws1.sinaimg.cn/large/0072Lfvtly1fyfbcc8crjj30xc0m6hdt.jpg",
-			"https://ws1.sinaimg.cn/large/0072Lfvtly1fyfbgcwt2nj31hc0u04qr.jpg"
-		];
-		var cssStyles = {
-			"background-image":"url('" + pictureLinks[Math.floor((Math.random()*2)+1) -1 ] + "')",
-			"background-color":"#000000",
-			"background-repeat":"no-repeat",
-			"background-size":"100% 100%",
-			"-moz-background-size":"100% 100%"
-		};
-		//$(document.body).css(cssStyles)
-		setInterval(function(){
-				//console.log("hello world!");
-    				$(".mdl-layout__obfuscator").remove()
-		},300);
-        });
-	</script>
-    </head>
-	<!-- bing images https://api.isoyu.com/bing_images.php -->
-    <body style="background-image:url('');background-color:#FCFCFC;" oncontextmenu='return false' ondragstart='return false' onselectstart ='return false' onselect='document.selection.empty()' oncopy='document.selection.empty()' onbeforecopy='return false' onmouseup='document.selection.empty()'>
-<link rel='stylesheet prefetch' href='https://ypig.github.io/styles/material.indigo-pink.min.css'>
-<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
 
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" />
+  <title>这里是猪猪的世界</title>
+  <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+  <script src="https://ypig.tk/styles/disableConsole.js"></script>
+  <script>
+    function is_weixin() {
+      try {
+        window.vConsole.destroy()
+      } catch (e) {}
+      /*var ua = window.navigator.userAgent.toLowerCase();
+      if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+           console.log("ua is ok")
+      } else {
+           document.write("请在微信内打开")
+      }*/
+    }
+
+    function getQueryString(name) {
+      var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+      var url = decodeURI(decodeURI(window.location.search))
+      var r = url.substr(1).match(reg);
+      if (r != null) return unescape(r[2]);
+      return null;
+    }
+    $(document).ready(function() {
+      is_weixin()
+      var pictureLinks = [
+        "https://ws1.sinaimg.cn/large/0072Lfvtly1fyfbcc8crjj30xc0m6hdt.jpg",
+        "https://ws1.sinaimg.cn/large/0072Lfvtly1fyfbgcwt2nj31hc0u04qr.jpg"
+      ];
+      var cssStyles = {
+        "background-image": "url('" + pictureLinks[Math.floor((Math.random() * 2) + 1) - 1] + "')",
+        "background-color": "#000000",
+        "background-repeat": "no-repeat",
+        "background-size": "100% 100%",
+        "-moz-background-size": "100% 100%"
+      };
+      //$(document.body).css(cssStyles)
+      setInterval(function() {
+        //console.log("hello world!");
+        $(".mdl-layout__obfuscator").remove()
+      }, 300);
+    });
+  </script>
+</head>
+<!-- bing images https://api.isoyu.com/bing_images.php -->
+
+<body style="background-image:url('');background-color:#FCFCFC;" oncontextmenu='return false' ondragstart='return false' onselectstart='return false' onselect='document.selection.empty()' oncopy='document.selection.empty()' onbeforecopy='return false'
+  onmouseup='document.selection.empty()'>
+  <link rel='stylesheet prefetch' href='https://ypig.tk/styles/material.indigo-pink.min.css'>
+  <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
     <header class="mdl-layout__header" style="background-color:#2196F3;">
-	    <div class="mdl-layout__header-row">
-            <!-- Title -->
-            <span class="mdl-layout-title">Ypiggy</span>
-            <!-- Add spacer, to align navigation to the right -->
-            <div class="mdl-layout-spacer"></div>
-            <!-- Search 
+      <div class="mdl-layout__header-row">
+        <!-- Title -->
+        <span class="mdl-layout-title">Ypiggy</span>
+        <!-- Add spacer, to align navigation to the right -->
+        <div class="mdl-layout-spacer"></div>
+        <!-- Search
 
             <form action="">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
@@ -68,38 +73,39 @@
                 </div>
             </form>-->
 
-        </div>
+      </div>
     </header>
-   <div class="mdl-layout__drawer" style="width:0px;display:none;">
+    <div class="mdl-layout__drawer" style="width:0px;display:none;">
     </div>
     <main class="mdl-layout__content">
-        <div class="mdl-grid">
-            <div class="mdl-cell mdl-card mdl-shadow--2dp">
-                <div class="mdl-card__title">
-                    <h2 class="mdl-card__title-text" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">本次更新：</h2>
-                </div>
+      <div class="mdl-grid">
+        <div class="mdl-cell mdl-card mdl-shadow--2dp">
+          <div class="mdl-card__title">
+            <h2 class="mdl-card__title-text" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">本次更新：</h2>
+          </div>
 
-                <div class="mdl-card__actions mdl-card--border post-categories post-tags">
-                <span style="color:gray;font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">
-                &nbsp;&nbsp;黄猪官网域名正式升级为ypig.tk啦!<br />
-                &nbsp;&nbsp;<br />
-		&nbsp;&nbsp;<br />
-                </span>
-                </div>
-                <div class="mdl-card__actions post-categories post-tags">
-                                        <a href="https://ypig.github.io/?isUpdateRead=true" style="background-color:#2196F3;" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent">
-            知道了
-          </a>
-                </div>
-                <div class="mdl-card__menu">
-                    <!--<button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+          <div class="mdl-card__actions mdl-card--border post-categories post-tags">
+            <span style="color:gray;font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">
+              &nbsp;&nbsp;黄猪官网域名正式升级为ypig.tk啦!<br />
+              &nbsp;&nbsp;<br />
+              &nbsp;&nbsp;<br />
+            </span>
+          </div>
+          <div class="mdl-card__actions post-categories post-tags">
+            <a href="https://ypig.tk/?isUpdateRead=true" style="background-color:#2196F3;" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent">
+              知道了
+            </a>
+          </div>
+          <div class="mdl-card__menu">
+            <!--<button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
                         <i class="material-icons">share</i>
                     </button>-->
-                </div>
-            </div>
+          </div>
         </div>
+      </div>
     </main>
-</div>
+  </div>
 </body>
-<script src='https://ypig.github.io/styles/material.min.js'></script>
+<script src='https://ypig.tk/styles/material.min.js'></script>
+
 </html>
