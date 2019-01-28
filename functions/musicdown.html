@@ -30,12 +30,12 @@
   		$.ajax({
         url:getSearchUrl(keyword),
         headers:{
-          'Host: music.163.com',
-          'Origin: http://music.163.com',
-          'User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.90 Safari/537.36',
-          'Content-Type: application/x-www-form-urlencoded',
-          'Referer: http://music.163.com/search/',
-        }
+          'Host': 'music.163.com',
+          'Origin': 'http://music.163.com',
+          'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.90 Safari/537.36',
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Referer': 'http://music.163.com/search/'
+        },
         success:function(data,status){
           if (data.result != undefined) {
     				for (var i = 0;i < data.length;i ++ ) {
