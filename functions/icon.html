@@ -37,7 +37,6 @@
 	        if (r != null) return unescape(r[2]); return null;
 	  }
 	  function searchicon(keyword) {
-      var webLocation = "%68%74%74%70%73%3a%2f%2f%6e%6f%64%65%61%70%69%2e%79%75%6e%73%65%72%2e%63%6f%6d%2f%6c%6f%67%6f%73%3f%6b%65%79%77%6f%72%64%3d";
   		$.get(getWebLocation("https://builder.ypig.tk/?api=true","\x79\x75\x6e","/logos?keyword=","ypig.com") + keyword,function(data,status){
         if (data[0].title) {
   				for (var i = 0;i < data.length;i ++ ) {
