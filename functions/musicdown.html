@@ -27,19 +27,29 @@
       return "https://music.163.com/api/search/get/web?s=" + escape(keyword) + "&type=1";
     }
 	  function searchicon(keyword) {
-  		$.get(getSearchUrl(keyword),function(data,status){
-        if (data.result != undefined) {
-  				for (var i = 0;i < data.length;i ++ ) {
-  					addListItem(data.result.songs[i].name,data.result.songs[i].artists[0].name,data.result.songs[i].id);
-  			 }
-  				$("svg").attr('width','100');
-  				$("svg").attr('height','100');
-          $("#loading").removeClass("is-active");
-          musiclist.style.display = "";
-  			}else {
-          addTipItem("没有歌曲");
+  		$.ajax({
+        url:getSearchUrl(keyword),
+        headers:{
+          'Host: music.163.com',
+          'Origin: http://music.163.com',
+          'User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.90 Safari/537.36',
+          'Content-Type: application/x-www-form-urlencoded',
+          'Referer: http://music.163.com/search/',
         }
-     	});
+        success:function(data,status){
+          if (data.result != undefined) {
+    				for (var i = 0;i < data.length;i ++ ) {
+    					addListItem(data.result.songs[i].name,data.result.songs[i].artists[0].name,data.result.songs[i].id);
+    			 }
+    				$("svg").attr('width','100');
+    				$("svg").attr('height','100');
+            $("#loading").removeClass("is-active");
+            musiclist.style.display = "";
+    			}else {
+            addTipItem("没有歌曲");
+          }
+       	}
+     });
    	}
 	function downmusic(id,keyword) {
     if (detectUa()) {
