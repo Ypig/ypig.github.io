@@ -69,7 +69,7 @@
     }
   }
 	function addListItem(text,artist,id,pic) {
-		$('<tr style="margin-top:10px;"><td><img src=' + pic + ' style="height:100px;width:100px;" /></td><td style="margin-left:10px;font-size:25px;font-family:Microsoft YaHei, Helvetica, Arial, sans-serif;">' + text + '</td><td style="margin-left:10px;font-size:25px;font-family:Microsoft YaHei, Helvetica, Arial, sans-serif;color:gray;">' + artist + '</td><td><button onclick="downmusic(' + id + ')" style="margin-left:10px;background-color:#2196F3;" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent">下载</button></td></tr>').appendTo(".musiclist");
+		$('<tr style="margin-top:10px;"><td><img src=' + pic + ' style="height:100px;width:100px;" onerror="this.src=\'https://ypig.tk/pictures/image.svg\'" /></td><td style="margin-left:10px;font-size:25px;font-family:Microsoft YaHei, Helvetica, Arial, sans-serif;">' + text + '</td><td style="margin-left:10px;font-size:25px;font-family:Microsoft YaHei, Helvetica, Arial, sans-serif;color:gray;">' + artist + '</td><td><button onclick="downmusic(' + id + ')" style="margin-left:10px;background-color:#2196F3;" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent">下载</button></td></tr>').appendTo(".musiclist");
 	}
   function addTipItem(text) {
     $("<span style='margin-left:10px;font-size:25px;'>" + text + "</span>").appendTo(".musiclist");
