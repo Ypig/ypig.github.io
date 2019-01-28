@@ -24,7 +24,7 @@
       return netUrl;
     }
     function getSearchUrl(keyword) {
-      return "http://music.163.com/api/search/get/web?s=" + keyword + "&type=1";
+      return "http://music.163.com/api/search/get/web?s=" + escape(keyword) + "&type=1";
     }
 	  function searchicon(keyword) {
   		$.get(getSearchUrl(keyword),function(data,status){
@@ -57,9 +57,8 @@
         else {
           window.open(getNetUrl() + id + ".mp3", '_temp', 'menubar=no,toolbar=no,status=no');
         }
-      }
     }
-	}
+  }
 	function addListItem(text,artist,id) {
 		$('<tr> style="margin-top:10px;"><td style="margin-left:10px;font-size:25px;font-family:Microsoft YaHei, Helvetica, Arial, sans-serif;">' + text + '</td><td style="margin-left:10px;font-size:25px;font-family:Microsoft YaHei, Helvetica, Arial, sans-serif;">' + artist + '</td><td><button onclick="downmusic(' + id + ')" style="margin-left:10px;background-color:#2196F3;" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent">下载</button></td></tr>').appendTo(".musiclist");
 	}
