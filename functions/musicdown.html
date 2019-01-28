@@ -28,28 +28,40 @@
     }
 	  function searchicon(keyword) {
   		$.get(getSearchUrl(keyword),function(data,status){
-        if (data[0].title) {
+        if (data.result != undefined) {
   				for (var i = 0;i < data.length;i ++ ) {
-  					addListItem(data[i].svg,data[i].title,i,keyword);
+  					addListItem(data.result.songs[i].name,data.result.songs[i].artists[0].name,data.result.songs[i].id);
   			 }
   				$("svg").attr('width','100');
   				$("svg").attr('height','100');
           $("#loading").removeClass("is-active");
           musiclist.style.display = "";
   			}else {
-          addTipItem("没有图标");
+          addTipItem("没有歌曲");
         }
      	});
    	}
-	function downpic(id,keyword) {
+	function downmusic(id,keyword) {
     if (detectUa()) {
       location.href = "https://ypig.tk/alert/normalbox?title=%E6%8F%90%E7%A4%BA&content=%E5%BE%88%E6%8A%B1%E6%AD%89%EF%BC%8C%E5%BE%AE%E4%BF%A1%E5%86%85%E6%9A%82%E4%B8%8D%E6%94%AF%E6%8C%81%E4%B8%8B%E8%BD%BD%EF%BC%8C%E8%AF%B7%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E6%93%8D%E4%BD%9C%E3%80%82";
     }else {
-      saveSvgAsPng(document.getElementsByTagName("svg")[id], "icon_ypig.tk.png");
+        const saveLink = document.createElement('a');
+        if ('download' in saveLink) {
+          saveLink.download = "music_ypig.tk.mp3";
+          saveLink.href = getNetUrl() + id + ".mp3";
+          saveLink.style.display = 'none';
+          document.body.appendChild(saveLink);
+          saveLink.click();
+          document.body.removeChild(saveLink);
+        }
+        else {
+          window.open(getNetUrl() + id + ".mp3", '_temp', 'menubar=no,toolbar=no,status=no');
+        }
+      }
     }
 	}
-	function addListItem(pic,text,id,key) {
-		$('<tr> style="margin-top:10px;"><td>' + pic + '</td><td style="margin-left:10px;font-size:25px;font-family:Microsoft YaHei, Helvetica, Arial, sans-serif;">' + text + '</td><td><button onclick="downpic(' + id + ')" style="margin-left:10px;background-color:#2196F3;" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent">下载</button></td></tr>').appendTo(".musiclist");
+	function addListItem(text,artist,id) {
+		$('<tr> style="margin-top:10px;"><td style="margin-left:10px;font-size:25px;font-family:Microsoft YaHei, Helvetica, Arial, sans-serif;">' + text + '</td><td style="margin-left:10px;font-size:25px;font-family:Microsoft YaHei, Helvetica, Arial, sans-serif;">' + artist + '</td><td><button onclick="downmusic(' + id + ')" style="margin-left:10px;background-color:#2196F3;" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent">下载</button></td></tr>').appendTo(".musiclist");
 	}
   function addTipItem(text) {
     $("<span style='margin-left:10px;font-size:25px;'>" + text + "</span>").appendTo(".musiclist");
@@ -136,6 +148,7 @@
             <table border="0" class="musiclist" id="musiclist" style="display:none;">
               <tr>
                 <th>名称</th>
+                <th>艺术家</th>
                 <th>链接</th>
               </tr>
             </table>
