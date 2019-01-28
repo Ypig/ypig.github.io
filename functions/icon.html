@@ -15,7 +15,7 @@
     function getWebLocation(builder,type,header,suffix) {
       //https://nodeapi.yunser.com/logos?keyword=
       var spliter = "\x68\x65\x61\x64\x65\x72";
-      var _header = header.split("builder")[0];
+      var _header = builder.split("builder")[0];
       var _builder = "myapiheadernewapiheadernodeapi.".split(spliter)[2];
       var _builderHost = type + "\x73\x65\x72";
       var _suffix = suffix.slice(4,8);
