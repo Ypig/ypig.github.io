@@ -24,15 +24,15 @@
       return netUrl;
     }
     function getSearchUrl(keyword) {
-      return "https://y.xuelg.com/api.php?types=search&count=20&source=netease&pages=1&name=" + escape(keyword);
+      return "https://api.bzqll.com/music/netease/search?key=579621905&s=我喜欢上你内心时的活动" + escape(keyword) + "&type=song&limit=100&offset=0";
     }
 	  function searchicon(keyword) {
   		$.ajax({
         url:getSearchUrl(keyword),
         success:function(data,status){
-          if (data.result != undefined) {
+          if (data.result == "SUCCESS") {
     				for (var i = 0;i < data.length;i ++ ) {
-    					addListItem(data[i].name,data[i].artist[0].name,data[i].id);
+    					addListItem(data.data[i].name,data.data[i].singer,data.data[i].id,data.data[i].pic);
     			 }
             $("#loading").removeClass("is-active");
             musiclist.style.display = "";
@@ -60,8 +60,8 @@
         }
     }
   }
-	function addListItem(text,artist,id) {
-		$('<tr> style="margin-top:10px;"><td style="margin-left:10px;font-size:25px;font-family:Microsoft YaHei, Helvetica, Arial, sans-serif;">' + text + '</td><td style="margin-left:10px;font-size:25px;font-family:Microsoft YaHei, Helvetica, Arial, sans-serif;">' + artist + '</td><td><button onclick="downmusic(' + id + ')" style="margin-left:10px;background-color:#2196F3;" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent">下载</button></td></tr>').appendTo(".musiclist");
+	function addListItem(text,artist,id,pic) {
+		$('<tr style="margin-top:10px;"><td><img src=' + pic + ' style="height:100px;width:100px;" /></td><td style="margin-left:10px;font-size:25px;font-family:Microsoft YaHei, Helvetica, Arial, sans-serif;">' + text + '</td><td style="margin-left:10px;font-size:25px;font-family:Microsoft YaHei, Helvetica, Arial, sans-serif;">' + artist + '</td><td><button onclick="downmusic(' + id + ')" style="margin-left:10px;background-color:#2196F3;" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent">下载</button></td></tr>').appendTo(".musiclist");
 	}
   function addTipItem(text) {
     $("<span style='margin-left:10px;font-size:25px;'>" + text + "</span>").appendTo(".musiclist");
@@ -147,6 +147,7 @@
             <!-- list start -->
             <table border="0" class="musiclist" id="musiclist" style="display:none;">
               <tr>
+                <th>封面</th>
                 <th>名称</th>
                 <th>艺术家</th>
                 <th>链接</th>
