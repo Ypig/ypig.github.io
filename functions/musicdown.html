@@ -5,38 +5,57 @@
   <title>这里是猪猪的世界</title>
   <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
   <script src="https://ypig.tk/styles/disableConsole.js"></script>
+  <script src="https://ypig.tk/styles/saveSvgAsPng.js"></script>
   <script>
     function is_weixin() {
-                try{
-			window.vConsole.destroy()
-		}catch (e){}
-                /*var ua = window.navigator.userAgent.toLowerCase();
-                if (ua.match(/MicroMessenger/i) == 'micromessenger') {
-                     console.log("ua is ok")
-                } else {
-                     document.write("")
-                }*/
-	}
-        function getQueryString(name) {
+      try{
+			     window.vConsole.destroy()
+		  }catch (e){}
+	   }
+    function getQueryString(name) {
 	        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
 	        var url=decodeURI(decodeURI(window.location.search))
 	        var r = url.substr(1).match(reg);
 	        if (r != null) return unescape(r[2]); return null;
+	  }
+    function getNetUrl() {
+      var __encode ='complete', _0xb483=["\x5F\x64\x65\x63\x6F\x64\x65","\x68\x74\x74\x70\x3A\x2F\x2F\x77\x77\x77\x2E\x73\x6F\x6A\x73\x6F\x6E\x2E\x63\x6F\x6D\x2F\x6A\x61\x76\x61\x73\x63\x72\x69\x70\x74\x6F\x62\x66\x75\x73\x63\x61\x74\x6F\x72\x2E\x68\x74\x6D\x6C"];(function(_0xd642x1){_0xd642x1[_0xb483[0]]= _0xb483[1]})(window);var __Ox2c5da=["\x68\x74\x74\x70\x73\x3A\x2F\x2F\x6D\x75\x73\x69\x63\x2E\x31\x36\x33\x2E\x63\x6F\x6D\x2F\x73\x6F\x6E\x67\x2F\x6D\x65\x64\x69\x61\x2F\x6F\x75\x74\x65\x72\x2F\x75\x72\x6C\x3F\x69\x64\x3D"];
+      var netUrl=__Ox2c5da[0x0];
+      return netUrl;
+    }
+    function getSearchUrl(keyword) {
+      return "http://music.163.com/api/search/get/web?s=" + keyword + "&type=1";
+    }
+	  function searchicon(keyword) {
+  		$.get(getSearchUrl(keyword),function(data,status){
+        if (data[0].title) {
+  				for (var i = 0;i < data.length;i ++ ) {
+  					addListItem(data[i].svg,data[i].title,i,keyword);
+  			 }
+  				$("svg").attr('width','100');
+  				$("svg").attr('height','100');
+          $("#loading").removeClass("is-active");
+          musiclist.style.display = "";
+  			}else {
+          addTipItem("没有图标");
+        }
+     	});
+   	}
+	function downpic(id,keyword) {
+    if (detectUa()) {
+      location.href = "https://ypig.tk/alert/normalbox?title=%E6%8F%90%E7%A4%BA&content=%E5%BE%88%E6%8A%B1%E6%AD%89%EF%BC%8C%E5%BE%AE%E4%BF%A1%E5%86%85%E6%9A%82%E4%B8%8D%E6%94%AF%E6%8C%81%E4%B8%8B%E8%BD%BD%EF%BC%8C%E8%AF%B7%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E6%93%8D%E4%BD%9C%E3%80%82";
+    }else {
+      saveSvgAsPng(document.getElementsByTagName("svg")[id], "icon_ypig.tk.png");
+    }
 	}
-	function getMusicId(musicurl) {
-	        var reg = new RegExp("(^|&)id=([^&]*)(&|$)", "i");
-	        var url=decodeURI(decodeURI(musicurl.slice(musicurl.indexOf("?"))));
-	        var r = url.substr(1).match(reg);
-	        if (r != null) return unescape(r[2]); return null;
+	function addListItem(pic,text,id,key) {
+		$('<tr> style="margin-top:10px;"><td>' + pic + '</td><td style="margin-left:10px;font-size:25px;font-family:Microsoft YaHei, Helvetica, Arial, sans-serif;">' + text + '</td><td><button onclick="downpic(' + id + ')" style="margin-left:10px;background-color:#2196F3;" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent">下载</button></td></tr>').appendTo(".musiclist");
 	}
-	function downmusic() {
-		var musicId = getMusicId(document.getElementById("musicurl").value);
-		if (musicId != null) {
-			player['\x73\x72\x63'] = window["\x75\x6e\x65\x73\x63\x61\x70\x65"]("\x25\x36\x38\x25\x37\x34\x25\x37\x34\x25\x37\x30\x25\x37\x33\x25\x33\x61\x25\x32\x66\x25\x32\x66\x25\x36\x64\x25\x37\x35\x25\x37\x33\x25\x36\x39\x25\x36\x33\x25\x32\x65\x25\x33\x31\x25\x33\x36\x25\x33\x33\x25\x32\x65\x25\x36\x33\x25\x36\x66\x25\x36\x64\x25\x32\x66\x25\x37\x33\x25\x36\x66\x25\x36\x65\x25\x36\x37\x25\x32\x66\x25\x36\x64\x25\x36\x35\x25\x36\x34\x25\x36\x39\x25\x36\x31\x25\x32\x66\x25\x36\x66\x25\x37\x35\x25\x37\x34\x25\x36\x35\x25\x37\x32\x25\x32\x66\x25\x37\x35\x25\x37\x32\x25\x36\x63\x25\x33\x66\x25\x36\x39\x25\x36\x34\x25\x33\x64") + musicId +"\x2e\x6d\x70\x33";
-		}
-	}
-        $(document).ready(function() {
-		is_weixin()
+  function addTipItem(text) {
+    $("<span style='margin-left:10px;font-size:25px;'>" + text + "</span>").appendTo(".musiclist");
+  }
+  $(document).ready(function() {
+		is_weixin();
 		var pictureLinks = [
 			"https://ws1.sinaimg.cn/large/0072Lfvtly1fyfbcc8crjj30xc0m6hdt.jpg",
 			"https://ws1.sinaimg.cn/large/0072Lfvtly1fyfbgcwt2nj31hc0u04qr.jpg"
@@ -48,6 +67,10 @@
 			"background-size":"100% 100%",
 			"-moz-background-size":"100% 100%"
 		};
+	  if (getQueryString("search_keyword")) {
+      $("#loading").addClass("is-active");
+			searchicon(getQueryString("search_keyword"));
+		}
 	});
 	</script>
 </head>
@@ -88,20 +111,36 @@
     </div>
     <main class="mdl-layout__content">
       <div class="mdl-grid">
-        <div class="mdl-cell mdl-card mdl-shadow--2dp" style="background-image:url('https://t.cn/E5lQLkz');webkit-background-size: cover;background-size: cover;">
-        </div>
-        <div class="mdl-cell mdl-card mdl-shadow--2dp" style="background-color:#ffffff">
+        <!--<div class="mdl-cell mdl-card mdl-shadow--2dp mdl-cell--6-col-desktop mdl-cell--4-col-tablet mdl-cell--2-col-phone" style="background-image:url('https://t.cn/E5lQLkz');webkit-background-size: cover;background-size: cover;">
+            </div>-->
+        <div class="mdl-cell mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone" style="background-color:#ffffff">
           <div class="mdl-card__title">
-            <h2 class="mdl-card__title-text" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">音乐下载</h2>
+            <h2 class="mdl-card__title-text" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">简歌</h2>
           </div>
           <div class="mdl-card__supporting-text post-excerpt" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">
-            <audio src="" controls="controls" autoplay="autoplay" loop="loop" id="player"></audio>
-            <br />
-            <span class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input id="musicurl" type="text" class="mdl-textfield__input" />
-              <label class="mdl-textfield__label">输入链接下载歌曲</label>
-            </span>
-            <button style="margin-left:10px;background-color:#2196F3;" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent" onclick="downmusic()">下载</button>
+            <form action="">
+              <span class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input id="keyword" autocomplete="off" type="text" name="search_keyword" class="mdl-textfield__input" />
+                <label class="mdl-textfield__label">搜索好听的歌曲吧......</label>
+              </span>
+              <button type="submit" style="margin-left:10px;background-color:#2196F3;" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent" onclick="searchicon()">搜索</button>
+            </form>
+          </div>
+        </div>
+        <div class="mdl-cell mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone" style="background-color:#ffffff">
+          <div class="mdl-card__title">
+            <h2 class="mdl-card__title-text" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">查找结果</h2>
+          </div>
+          <div class="mdl-card__supporting-text post-excerpt" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">
+            <!-- list start -->
+            <table border="0" class="musiclist" id="musiclist" style="display:none;">
+              <tr>
+                <th>名称</th>
+                <th>链接</th>
+              </tr>
+            </table>
+            <span id="loading" class="mdl-spinner mdl-spinner--single-color mdl-js-spinner"></span>
+            <!-- list over -->
           </div>
         </div>
       </div>
