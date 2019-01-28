@@ -48,7 +48,7 @@
     }else {
   		$.get("https://nodeapi.yunser.com/logos?keyword=" + keyword,function(data,status){
          	if (data != []) {
-            console.log(saveSvgAsPng(document.getElementById("hello"), "diagram.png"););
+            console.log(saveSvgAsPng(document.getElementById("hello"), "diagram.png"));
   				var blobUrl = window.URL.createObjectURL(new Blob([data[id].svg], {type: 'text/plain;charset=utf-8'}));
 
   				var link = document.createElement('a');
