@@ -24,7 +24,7 @@
       return netUrl;
     }
     function getSearchUrl(keyword) {
-      return "http://music.163.com/api/search/get/web?s=" + escape(keyword) + "&type=1";
+      return "https://music.163.com/api/search/get/web?s=" + escape(keyword) + "&type=1";
     }
 	  function searchicon(keyword) {
   		$.get(getSearchUrl(keyword),function(data,status){
