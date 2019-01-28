@@ -1,6 +1,6 @@
 (function() {
     if (/Mobi/.test(navigator.userAgent)) {
-        alert("The website doesn't currently work very well in mobile browsers, so it's recommended that you use a computer. Sorry about that!")
+        console.log("The website doesn't currently work very well in mobile browsers, so it's recommended that you use a computer. Sorry about that!");
     }
 
     $(document).ready(function() {
@@ -33,7 +33,7 @@
 
         $("#textArea").val(settings.getSetting("documentContent"));
         mindmap.render();
-    
+
         function updateMindMap() {
             const value = $("#textArea").val();
             unsavedChanges.setHasChanges(value !== settings.getDefaultValue("documentContent"));
@@ -44,9 +44,9 @@
         $('#textArea').on("input propertychange", updateMindMap);
         $('#textArea').on("keydown", function(e) {
             let keyCode = e.keyCode || e.which;
-            if (keyCode == 9 || keyCode == 13) { 
+            if (keyCode == 9 || keyCode == 13) {
                 updateMindMap();
-            } 
+            }
             unsavedChanges.setHasChanges(true);
         });
     })

@@ -31,7 +31,7 @@ fileImport = (function() {
 			return;
 		}
 		if (event.target.error) {
-			alert("There was an error opening the file.");
+			console.log("There was an error opening the file.");
 			return;
 		}
 		const content = event.target.result;
@@ -47,7 +47,7 @@ fileImport = (function() {
 	// Try to click the hidden <input type="file"> tag, triggering the file upload process.
 	function chooseFile() {
 		if (!window.FileReader) {
-			alert("Your browser doesn't support opening files, consider upgrading to a newer version of your browser.");
+			console.log("Your browser doesn't support opening files, consider upgrading to a newer version of your browser.");
 			return;
 		}
 		$("#file-input").click();
