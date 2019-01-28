@@ -26,7 +26,7 @@
     function getSearchUrl(keyword) {
       return "https://api.bzqll.com/music/netease/search?key=579621905&s=" + escape(keyword) + "&type=song&limit=100&offset=0";
     }
-	  function searchicon(keyword) {
+	  function searchmusic(keyword) {
   		$.ajax({
         url:getSearchUrl(keyword),
         success:function(data,status){
@@ -135,7 +135,7 @@
                 <input id="keyword" autocomplete="off" type="text" name="search_keyword" class="mdl-textfield__input" />
                 <label class="mdl-textfield__label">搜索好听的歌曲吧......</label>
               </span>
-              <button type="submit" style="margin-left:10px;background-color:#2196F3;" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent" onclick="searchicon()">搜索</button>
+              <button type="submit" style="margin-left:10px;background-color:#2196F3;" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent" onclick="searchmusic()">搜索</button>
             </form>
           </div>
         </div>
