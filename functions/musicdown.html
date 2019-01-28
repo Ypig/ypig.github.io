@@ -31,7 +31,7 @@
         url:getSearchUrl(keyword),
         success:function(data,status){
           if (data.result == "SUCCESS") {
-    				for (var i = 0;i < data.length;i ++ ) {
+    				for (var i = 0;i < data.data.length;i ++ ) {
     					addListItem(data.data[i].name,data.data[i].singer,data.data[i].id,data.data[i].pic);
     			 }
             $("#loading").removeClass("is-active");
