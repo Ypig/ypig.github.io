@@ -32,15 +32,15 @@
       return netUrl;
     }
     function getSearchUrl(keyword) {
-      return "https://api.bzqll.com/music/netease/search?key=579621905&s=" + escape(keyword) + "&type=song&limit=100&offset=0";
+      return "https://api.berryapi.net/netmusic/?query=s&kw=" + escape(keyword) + "&t=1&limit=&offset=";
     }
 	  function searchmusic(keyword) {
   		$.ajax({
         url:getSearchUrl(keyword),
         success:function(data,status){
-          if (data.result == "SUCCESS") {
-    				for (var i = 0;i < data.data.length;i ++ ) {
-    					addListItem(data.data[i].name,data.data[i].singer,data.data[i].id,data.data[i].pic);
+          if (data.result ！= undefined) {
+    				for (var i = 0;i < data.result.songs.length;i ++ ) {
+    					addListItem(data.result.songs[i].name,data.result.songs[i].artists[0].name,data.result.songs[i].id,data.result.songs[i].album.blurPicUrl);
     			 }
             $("#loading").removeClass("is-active");
             musiclist.style.display = "";
