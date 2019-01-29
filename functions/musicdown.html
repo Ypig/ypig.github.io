@@ -37,6 +37,7 @@
 	  function searchmusic(keyword) {
       console.log("searchmusic start");
   		$.ajax({
+        type:"get",
         url:getSearchUrl(keyword),
         success:function(data,status){
           console.log("data :" + data);
