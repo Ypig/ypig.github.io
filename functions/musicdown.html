@@ -38,7 +38,7 @@
   		$.ajax({
         url:getSearchUrl(keyword),
         success:function(data,status){
-          if (data.result ！= undefined) {
+          if (data.result != undefined) {
     				for (var i = 0;i < data.result.songs.length;i ++ ) {
     					addListItem(data.result.songs[i].name,data.result.songs[i].artists[0].name,data.result.songs[i].id,data.result.songs[i].album.blurPicUrl);
     			 }
