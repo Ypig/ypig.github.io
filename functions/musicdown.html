@@ -38,8 +38,11 @@
       console.log("searchmusic start");
   		$.ajax({
         url:getSearchUrl(keyword),
+        dataType:"text",
         success:function(data,status){
-          console.log("data :" + data);
+          data = eval('('+ data +')');
+          data = data.slice(0,data.length-1);
+          console.log("dt:" + data);
     			for (var i = 0;i < data.result.songs.length;i ++ ) {
             console.log("add list item!");
     				addListItem(data.result.songs[i].name,data.result.songs[i].artists[0].name,data.result.songs[i].id,data.result.songs[i].album.blurPicUrl);
