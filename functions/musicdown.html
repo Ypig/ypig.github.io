@@ -35,15 +35,18 @@
       return "https://api.berryapi.net/netmusic/?query=s&kw=" + escape(keyword) + "&t=1&limit=&offset=";
     }
 	  function searchmusic(keyword) {
+      console.log("searchmusic start");
   		$.ajax({
         url:getSearchUrl(keyword),
         success:function(data,status){
           console.log("data :" + data);
     			for (var i = 0;i < data.result.songs.length;i ++ ) {
+            console.log("add list item!");
     				addListItem(data.result.songs[i].name,data.result.songs[i].artists[0].name,data.result.songs[i].id,data.result.songs[i].album.blurPicUrl);
     			}
           $("#loading").removeClass("is-active");
           musiclist.style.display = "";
+          consolg.log("now i'm done!");
        	}
      });
    	}
