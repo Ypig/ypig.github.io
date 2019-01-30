@@ -21,7 +21,7 @@
     }
     $(document).ready(function() {
       if (getQueryString("path")) {
-        f.src = unescape(getQueryString("path"));
+        $("#frame").attr("src",unescape(getQueryString("path")));
       }
     });
   </script>
