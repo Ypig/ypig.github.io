@@ -13,6 +13,12 @@
       if (r != null) return unescape(r[2]);
       return null;
     }
+    function showIframe() {
+      $("header").remove();
+      $("main").remove();
+      $("div").remove();
+      f.style.display = "";
+    }
     $(document).ready(function() {
       if (getQueryString("path")) {
         f.src = unescape(getQueryString("path"));
@@ -24,14 +30,6 @@
 
 <body style="background-image:url('');background-color:#FCFCFC;" oncontextmenu='return false' ondragstart='return false' onselectstart='return false' onselect='document.selection.empty()' oncopy='document.selection.empty()' onbeforecopy='return false'
   onmouseup='document.selection.empty()'>
-  <script>
-    function showIframe() {
-      $("header").remove();
-      $("main").remove();
-      $("div").remove();
-      f.style.display = "";
-    }
-  </script>
   <link rel='stylesheet prefetch' href='https://ypig.tk/styles/material.indigo-pink.min.css'>
   <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
 
