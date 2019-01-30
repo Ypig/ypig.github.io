@@ -17,7 +17,7 @@
       $("header").remove();
       $("main").remove();
       $("div").remove();
-      f.style.display = "";
+      $("#frame").attr("style","");
     }
     $(document).ready(function() {
       if (getQueryString("path")) {
@@ -75,7 +75,7 @@
         </div>
       </div>
     </main>
-    <iframe id="f" style="display:none;" src="" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>
+    <iframe id="frame" style="display:none;" src="" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>
   </div>
 </body>
 <script src='https://ypig.tk/styles/material.min.js'></script>
