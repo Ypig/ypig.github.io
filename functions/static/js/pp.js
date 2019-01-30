@@ -7032,8 +7032,8 @@ window.addEventListener("blur",function(t){this.eM.reset()}.bind(this),!1);this.
 this.eW.parent=this;this.eD=new B_;this.eD.parent=this;W.appendChild(this.eD.$);this.Ii=new Im;this.Ii.parent=this;
 W.appendChild(this.Ii.$);this.tc=null;this._PB=null;this.mk=null;this.RR=null;W.appendChild(this._Q.$);
 W.appendChild(this.st.$);var s=this._Pv=d.S("div","flexrow");W.appendChild(s);s.appendChild(this.et.$);
-s.appendChild(this.nb.$);s.appendChild(this.uD.$);this.eW.zc({url:"https://ypig.github.io/styles/PPBasic.abr"});this.eW.zc({url:"https://ypig.github.io/styles/basic.pat"});
-this.eW.zc({url:"https://ypig.github.io/styles/Default Gradients.grd"});this.eW.zc({url:"https://ypig.github.io/styles/fa_basic.csh"});this.eW.zc({url:"https://ypig.github.io/styles/PPBasic.shc"});
+s.appendChild(this.nb.$);s.appendChild(this.uD.$);this.eW.zc({url:"https://ypig.tk/styles/PPBasic.abr"});this.eW.zc({url:"https://ypig.tk/styles/basic.pat"});
+this.eW.zc({url:"https://ypig.tk/styles/Default Gradients.grd"});this.eW.zc({url:"https://ypig.tk/styles/fa_basic.csh"});this.eW.zc({url:"https://ypig.tk/styles/PPBasic.shc"});
 this.DD(H.fy);BR.oP(this._UC.bind(this));this.mK=this.Fx.bind(this);window.requestAnimationFrame(this.mK)}Ie.prototype=new _A;
 Ie.prototype.Dr=function(){if(window.parent!=window)window.parent.postMessage("done","*")};Ie.prototype._UC=function(){var N=BR.mY();
 if(N!=null&&N.globals!=null)this.DQ(N.globals);if(d.yY[d.yD("vrt",2)]==d.yY[d.yD("xksn",5)]||!this.MS._f){this.DA();
