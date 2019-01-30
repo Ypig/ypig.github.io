@@ -41,13 +41,15 @@
         dataType:"text",
         success:function(data,status){
           data = data.slice(0,data.length-1);
-          while (true) {
+          //while (true) {
             try{
               data = JSON.parse(data);
             }catch(e) {
               console.log(e);
+              console.log(e.lineNumber);
+              return false;
             }
-          }
+          //}
           console.log("dt:" + data);
     			for (var i = 0;i < data.result.songs.length;i ++ ) {
             console.log("add list item!");
