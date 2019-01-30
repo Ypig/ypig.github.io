@@ -4,6 +4,9 @@
   <title>YPIG API</title>
   <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
   <script>
+    $.get("https://api.berryapi.net/netmusic/?query=s&kw=a moment by your side&t=1&limit=&offset=", function(data) {
+      console.log(JSON.parse(d.responseText));
+    });
     Date.prototype.format = function(fmt) {
       var o = {
         "M+": this.getMonth() + 1,
@@ -24,11 +27,13 @@
       }
       return fmt;
     }
+
     function getQueryString(name) {
-          var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
-          var url=decodeURI(decodeURI(window.location.search))
-          var r = url.substr(1).match(reg);
-          if (r != null) return unescape(r[2]); return null;
+      var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+      var url = decodeURI(decodeURI(window.location.search))
+      var r = url.substr(1).match(reg);
+      if (r != null) return unescape(r[2]);
+      return null;
     }
     $(document).ready(function() {
       var date = Number(new Date().format("yyyyMMddhh")).toString(16);
