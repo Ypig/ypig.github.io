@@ -75,8 +75,11 @@
 			}
 		}, 300);
     $(document).ready(function() {
-			top.showIframe();
-			//document.write(unescape("%45%72%72%6f%72%20%6f%6e%6c%6f%61%64"));
+			try {
+				top.showIframe();
+			} catch(e) {
+				document.write(unescape("%45%72%72%6f%72%20%6f%6e%6c%6f%61%64"));
+		 }
 		});
 	</script>
 </head>

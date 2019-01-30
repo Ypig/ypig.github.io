@@ -22,6 +22,7 @@
     $(document).ready(function() {
       if (getQueryString("path")) {
         $("#frame").attr("src",unescape(getQueryString("path")));
+        $("#card_icon").attr("src","https://ypig.tk/pictures/" + unescape(getQueryString("image")) + ".svg");
       }
     });
   </script>
@@ -66,11 +67,12 @@
       <div class="mdl-grid">
         <div class="mdl-cell mdl-card mdl-shadow--2dp" style="background-color:#ffffff">
           <div class="mdl-card__title">
-            <img src="https://ypig.tk/pictures/image.svg" style="width:30px;height:30px;display:inline;">
+            <img src="https://ypig.tk/pictures/image.svg" id="card_icon" style="width:30px;height:30px;display:inline;">
             <h2 class="mdl-card__title-text" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">加载中</h2>
           </div>
           <div class="mdl-card__supporting-text post-excerpt" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">
-            功能体积较大，请耐心等待加载......
+            功能体积较大，请耐心等待加载......<br />
+            <span id="loading" class="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active"></span>
           </div>
         </div>
       </div>

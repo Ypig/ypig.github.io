@@ -5,11 +5,20 @@
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="static/js/0a708c01bdf14a72b7a61dabdde478e1.js"></script>
 	<script>
-	  window.dataLayer = window.dataLayer || [];
+		window.dataLayer = window.dataLayer || [];
 	  function gtag(){dataLayer.push(arguments);}
 	  gtag('js', new Date());
 
 	  gtag('config', 'UA-73558830-1', { 'anonymize_ip': true });
+	</script>
+	<script>
+		$(document).ready(function() {
+			try {
+				top.showIframe();
+			} catch(e) {
+				document.write(unescape("%45%72%72%6f%72%20%6f%6e%6c%6f%61%64"));
+		 }
+		});
 	</script>
 
 
@@ -19,50 +28,50 @@
 
 	<link rel="stylesheet" href="static/css/customstyles.css">
 	<link rel="stylesheet" href="static/css/jquery-ui-1.10.3.custom.min.css">
-	<link rel="stylesheet" href="static/css/jquery.minicolors.css"/>
+	<link rel="stylesheet" href="static/css/jquery.minicolors.css" />
 	<script defer src="static/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="static/css/app.css">
-    <link rel="stylesheet" href="static/css/navbar.css">
-    <link rel="stylesheet" href="static/css/modal.css">
-    <link rel="stylesheet" href="static/css/document_title.css">
-    <link rel="stylesheet" href="static/css/editor.css">
-    <link rel="stylesheet" href="static/css/viewer.css">
-    <link rel="stylesheet" href="static/css/pane_resizer.css">
-	
-    <script src="static/js/jquery.min.js"></script>
-    <script src="static/js/jquery.minicolors.js"></script>
-    <script src="static/js/d3.min.js"></script>
-    <!-- <script src="static/js/jquery.minicolors.js"></script> -->
-    <!-- <script src="static/js/d3.min.js"></script> -->
-    <script src="static/js/kineticjs.js"></script>
-    <script src="static/js/jquery.cookie.min.js"></script>
-    <script src="static/js/difflib.js"></script>
+	<link rel="stylesheet" href="static/css/app.css">
+	<link rel="stylesheet" href="static/css/navbar.css">
+	<link rel="stylesheet" href="static/css/modal.css">
+	<link rel="stylesheet" href="static/css/document_title.css">
+	<link rel="stylesheet" href="static/css/editor.css">
+	<link rel="stylesheet" href="static/css/viewer.css">
+	<link rel="stylesheet" href="static/css/pane_resizer.css">
+
+	<script src="static/js/jquery.min.js"></script>
+	<script src="static/js/jquery.minicolors.js"></script>
+	<script src="static/js/d3.min.js"></script>
+	<!-- <script src="static/js/jquery.minicolors.js"></script> -->
+	<!-- <script src="static/js/d3.min.js"></script> -->
+	<script src="static/js/kineticjs.js"></script>
+	<script src="static/js/jquery.cookie.min.js"></script>
+	<script src="static/js/difflib.js"></script>
 
 	<script type="text/javascript">
-        var viewcode = "";
-        var admincode = "";
-        var map = "";
-        var savingState = "unsaved";
-        var isOldBrowser = false;
-        var isIE = false;
-        var logged_in = "";
-        var userid = "";
-        var user = "";
-    </script>
-    <script src="static/js/mindmap.min.js"></script>
-    
-    <script src="static/js/unsaved_changes.js"></script>
-    <script src="static/js/settings.js"></script>
-    <script src="static/js/document_title.js"></script>
-    <script src="static/js/file_import.js"></script>
-    <script src="static/js/file_export.js"></script>
-    <script src="static/js/app_functions.js"></script>
-    <script src="static/js/navbar.js"></script>
-    <script src="static/js/modal.js"></script>
-    <script src="static/js/pane_resizer.js"></script>
-    <script src="static/js/shortcuts.js"></script>
-    <script src="static/js/main.js"></script>
+		var viewcode = "";
+		var admincode = "";
+		var map = "";
+		var savingState = "unsaved";
+		var isOldBrowser = false;
+		var isIE = false;
+		var logged_in = "";
+		var userid = "";
+		var user = "";
+	</script>
+	<script src="static/js/mindmap.min.js"></script>
+
+	<script src="static/js/unsaved_changes.js"></script>
+	<script src="static/js/settings.js"></script>
+	<script src="static/js/document_title.js"></script>
+	<script src="static/js/file_import.js"></script>
+	<script src="static/js/file_export.js"></script>
+	<script src="static/js/app_functions.js"></script>
+	<script src="static/js/navbar.js"></script>
+	<script src="static/js/modal.js"></script>
+	<script src="static/js/pane_resizer.js"></script>
+	<script src="static/js/shortcuts.js"></script>
+	<script src="static/js/main.js"></script>
 </head>
 
 <body>
@@ -81,7 +90,7 @@
 						<li><a href="#" id="file-new"><i class="fa fa-file fa-fw"></i>新建<span class="dropdown-shortcut">Ctrl+N</span></a></li>
 						<li><a href="#" id="file-open"><i class="fa fa-upload fa-fw"></i>打开...<span class="dropdown-shortcut">Ctrl+O</span></a></li>
 						<li><a href="#" id="file-save"><i class="fa fa-save fa-fw"></i>保存...<span class="dropdown-shortcut">Ctrl+S</span></a></li>
-						<li><a href="#" id="file-rename"><svg/>重命名...<span class="dropdown-shortcut"></span></a></li>
+						<li><a href="#" id="file-rename"><svg />重命名...<span class="dropdown-shortcut"></span></a></li>
 					</ul>
 				</li>
 				<li class="navbar-item navbar-button navbar-dropdown">
@@ -98,14 +107,14 @@
 
 		<div id="pane-container">
 			<div id="editor-pane">
-                <div id="editor">
-                        <div class="collapse-button" id="editor-collapse-button" style="visibility: visible;left: calc(100% - 29px);">
-                                <div>
-                                    <i class="fa fa-fw fa-chevron-left"></i>
-                                </div>
-                            </div>
-                            <textarea id="textArea" wrap="off" exp></textarea>
-                </div>
+				<div id="editor">
+					<div class="collapse-button" id="editor-collapse-button" style="visibility: visible;left: calc(100% - 29px);">
+						<div>
+							<i class="fa fa-fw fa-chevron-left"></i>
+						</div>
+					</div>
+					<textarea id="textArea" wrap="off" exp></textarea>
+				</div>
 			</div>
 			<div id="viewer-pane">
 				<div class="collapse-button" id="viewer-collapse-button" style="visibility: hidden;">
@@ -133,7 +142,7 @@
 					</div>
 					<div class="modal-body">
 						<div class="tab-content active" id="setting-tab-general">
-                            <form>
+							<form>
 								<div class="form-group">
 									<label class="control-label">移动后固定</label>
 									<div class="checkbox-control">
@@ -152,7 +161,7 @@
 									<label class="control-label">颜色</label>
 									<div id="colorsdiv" class="form-div"></div>
 								</div>
-                            </form>
+							</form>
 						</div>
 					</div>
 					<div class="modal-footer">
@@ -169,4 +178,5 @@
 	<input id="file-input" type="file" accept=".txt">
 </body>
 <!-- https://github.com/tobloef/text2mindmap -->
+
 </html>
