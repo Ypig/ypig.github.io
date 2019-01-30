@@ -49,6 +49,7 @@
             }catch(e) {
               var ln = e.toString().split("position ")[1]
               console.log("err json at :" + ln);
+              console.log("in:" + data);
               var replaced = data.replace(new RegExp(data.charAt(ln)),"");
               data = replaced;
               continue;
