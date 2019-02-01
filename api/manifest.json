@@ -1,0 +1,17 @@
+{
+  "status" : "SUCCESS",
+  "accountSettings": {
+      "ypig001" : {
+        "password" : "%79%70%69%67%30%30%31",
+        "points" : 10
+      }
+  },
+  "updateSettings": {
+    "version" : "1.0.0",
+    "note" : "更新:版本1.0.0"
+  },
+  "vpnSettings" : {
+    "VPN" : "ss://ZYFP6ZyYvIyOKxMfxS6hxR3AOfoYThTxLXRWnIyOAadafMRm0Mg8a4IVwRWrQxKHBDgsLv",
+    "available" : "true"
+  }
+}
