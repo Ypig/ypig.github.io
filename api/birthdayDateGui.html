@@ -17,7 +17,7 @@
       myDate = new Date(Date.parse(myDate.replace(/-/g, "/")));
       var startDate = begindate.getTime();
       var endDate = myDate.getTime();
-      var day = parseInt((endDate-startDate)/1000/3600/24);
+      var day = parseInt((endDate-startDate)/1000/3600/24) + 1;
       if (day > 0) {
         return day;
       } else {
