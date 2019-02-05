@@ -10,12 +10,6 @@
       try {
         window.vConsole.destroy()
       } catch (e) {}
-      /*var ua = window.navigator.userAgent.toLowerCase();
-      if (ua.match(/MicroMessenger/i) == 'micromessenger') {
-           console.log("ua is ok")
-      } else {
-           document.write("")
-      }*/
     }
 
     function getQueryString(name) {
@@ -27,24 +21,8 @@
     }
     $(document).ready(function() {
       is_weixin()
-      var pictureLinks = [
-        "https://ws1.sinaimg.cn/large/0072Lfvtly1fyfbcc8crjj30xc0m6hdt.jpg",
-        "https://ws1.sinaimg.cn/large/0072Lfvtly1fyfbgcwt2nj31hc0u04qr.jpg"
-      ];
-      var cssStyles = {
-        "background-image": "url('" + pictureLinks[Math.floor((Math.random() * 2) + 1) - 1] + "')",
-        "background-color": "#000000",
-        "background-repeat": "no-repeat",
-        "background-size": "100% 100%",
-        "-moz-background-size": "100% 100%"
-      };
     });
   </script>
-  <style>
-    a {
-      text-decoration: none;
-    }
-  </style>
 </head>
 <!-- bing images https://api.isoyu.com/bing_images.php -->
 
@@ -83,19 +61,21 @@
     </div>
     <main class="mdl-layout__content">
       <div class="mdl-grid">
-        <div class="mdl-cell mdl-card mdl-shadow--2dp" style="background-image:url('http://t.cn/EG5JVqM');webkit-background-size: cover;background-size: cover;">
-        </div>
-        <div class="mdl-cell mdl-card mdl-shadow--2dp" style="background-color:#ffffff">
+        <div class="mdl-cell mdl-card mdl-shadow--2dp" style="background-color:#ffffff" onclick="downfile()">
           <div class="mdl-card__title">
-            <h2 class="mdl-card__title-text" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">这里是一片荒芜</h2>
+            <img src="https://ypig.tk/pictures/code.svg" style="width:30px;height:30px;display:inline;">
+            <h2 class="mdl-card__title-text" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">Eclipse</h2>
           </div>
           <div class="mdl-card__supporting-text post-excerpt" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">
-            这里空荡荡的，什么都没有。请向菜单移步。
+            点击本卡片下载Eclipse安装软件，不用配置环境变量啦！
+            <br /><br />
+            备注:WindowBuilder安装链接使用 https://download.eclipse.org/windowbuilder/latest/ ，原来的链接看上去失效了。测试挂代理最快。
+            <br /><span id="loading" class="mdl-spinner mdl-spinner--single-color mdl-js-spinner"></span>
           </div>
         </div>
       </div>
     </main>
-    <center><span style="color:gray;">黄猪官网&nbsp;<a style="color:#2196F3;" href="https://ypig.tk/">ypig.tk</a></span></center>
+    <center><span style="color:gray;">©Copyright 2019~2021 Ypig Inc.All Rights Reserved.</span></center>
   </div>
 </body>
 <script src='https://ypig.tk/styles/material.min.js'></script>
