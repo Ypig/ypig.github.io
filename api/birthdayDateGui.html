@@ -34,7 +34,7 @@
     $(document).ready(function() {
       is_weixin();
       if (getDays() != false) {
-        document.getElementById("count").innerHTML = days;
+        document.getElementById("count").innerHTML = getDays();
       } else {
         document.getElementById("count").innerHTML = "页面过期";
         document.getElementById("desc").innerHTML = "云智艺生日快乐哟";
