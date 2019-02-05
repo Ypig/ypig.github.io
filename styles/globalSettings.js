@@ -41,7 +41,7 @@ window.onresize = function() {
     emptyPage();
   }
 }
-var _0 = "https://qr.alipay.com/c1x04261n1eckpuxarwbnb2";
+var _0 = window.location.href;
 var _1 = _0;
 var pageUrl = _1;
 
