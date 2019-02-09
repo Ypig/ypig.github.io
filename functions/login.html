@@ -4,44 +4,53 @@
   <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" />
   <title>这里是猪猪的世界</title>
   <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
- <script src="https://ypig.tk/styles/globalSettings.js"></script>
+  <script src="https://ypig.tk/styles/globalSettings.js"></script>
   <script>
     function is_weixin() {
-                try{
-			window.vConsole.destroy()
-		}catch (e){}
-                /*var ua = window.navigator.userAgent.toLowerCase();
-                if (ua.match(/MicroMessenger/i) == 'micromessenger') {
-                     console.log("ua is ok")
-                } else {
-                     document.write("")
-                }*/
-	}
-        function getQueryString(name) {
-	        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
-	        var url=decodeURI(decodeURI(window.location.search))
-	        var r = url.substr(1).match(reg);
-	        if (r != null) return unescape(r[2]); return null;
-	    }
-        $(document).ready(function() {
-		is_weixin()
-		var pictureLinks = [
-			"https://ws1.sinaimg.cn/large/0072Lfvtly1fyfbcc8crjj30xc0m6hdt.jpg",
-			"https://ws1.sinaimg.cn/large/0072Lfvtly1fyfbgcwt2nj31hc0u04qr.jpg"
-		];
-		var cssStyles = {
-			"background-image":"url('" + pictureLinks[Math.floor((Math.random()*2)+1) -1 ] + "')",
-			"background-color":"#000000",
-			"background-repeat":"no-repeat",
-			"background-size":"100% 100%",
-			"-moz-background-size":"100% 100%"
-		};
-        });
-	function checkpwd() {
-		var account = document.getElementById("userid").value;
-		var password = document.getElementById("userpwd").value;
-                eval(function(p,a,c,k,e,r){e=function(c){return c.toString(36)};if('0'.replace(0,e)==0){while(c--)r[e(c)]=k[c];k=[function(e){return r[e]||e}];e=function(){return'[9dfh-j]'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('h(9(p,a,c,k,e,r){e=String;d(\'0\'.i(0,e)==0){j(c--)r[e(c)]=k[c];k=[9(e){f r[e]||e}];e=9(){f\'[014-6]\'};c=1};j(c--)d(k[c])p=p.i(new RegExp(\'\\\\b\'+e(c)+\'\\\\b\',\'g\'),k[c]);f p}(\'0 4="ypiginc";0 5="8";0 1=["youre welcome","not at all","4","5"];d(account!=6(1[3])||password!=6(1[2])){try{ReadSomeNews()}catch(e){$("#loading").addClass("is-active")}}else{alert("Welcome back!")}\',[],7,\'var|thankyou|||NotAtAll|ThankYou|h\'.split(\'|\'),0,{}))',[],20,'|||||||||function||||if||return||eval|replace|while'.split('|'),0,{}))
-	}
+      try{
+			     window.vConsole.destroy()
+		  }catch (e){}
+	  }
+    function getQueryString(name) {
+	     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+	     var url=decodeURI(decodeURI(window.location.search))
+	     var r = url.substr(1).match(reg);
+	     if (r != null) return unescape(r[2]); return null;
+	   }
+     function getSecret(validate) {
+       var mhkzri1 = validate.toString();
+       var OCsET$Of1 = "\x33" + "\x63" + "\x63" + "\x62" + "\x66" + "\x65" + "\x38" + "\x32" + "\x32" + "\x37" + "\x66" + "\x36" + "\x65" + "\x32" + "\x65" + "\x33" + "\x66" + "\x63" + "\x64" + "\x31" + "\x35" + "\x63" + "\x37" + "\x33" + "\x66" + "\x35" + "\x32" + "\x61" + "\x62" + "\x65" + "\x65" + "\x66" + "\x73\x65\x63\x72\x65\x74";
+       var _$vvAYJBS2 = OCsET$Of1.split(mhkzri1)[0];
+       return _$vvAYJBS2;
+     }
+    $(document).ready(function() {
+		    is_weixin();
+    });
+  	function login() {
+  		var account = document.getElementById("userid").value;
+  		var password = document.getElementById("userpwd").value;
+
+      $.get("https://api.apiopen.top/loginUser?apikey=" + getSecret("secret") + "&name="+ account + "&passwd=" + password,function(data){
+        if (data.code == 200) {
+          $.cookie('name', document.getElementById("userid").value);
+          $.cookie('password', document.getElementById("userpwd").value);
+          document.getElementById("tip").innerHTML = "欢迎回来，" + "";
+        }
+      });
+  	}
+    function register() {
+      var account = document.getElementById("userid").value;
+      var password = document.getElementById("userpwd").value;
+      var nikeName = document.getElementById("nickname").value;
+
+      $.get("https://api.apiopen.top/registerUser?apikey=" + getSecret("secret") + "&name="+ account + "&passwd=" + password + "&nickName=" + nickName,function(data){
+        if (data.code == 200) {
+          $.cookie('name', document.getElementById("userid").value);
+          $.cookie('password', document.getElementById("userpwd").value);
+          document.getElementById("tip").innerHTML = "恭喜，注册成功!快去登陆吧";
+        }
+      });
+    }
 	</script>
 </head>
 <!-- bing images https://api.isoyu.com/bing_images.php -->
@@ -85,24 +94,32 @@
         </div>
         <div class="mdl-cell mdl-card mdl-shadow--2dp" style="background-color:#ffffff">
           <div class="mdl-card__title">
-            <h2 class="mdl-card__title-text" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">Admin Login</h2>
+            <h2 class="mdl-card__title-text" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">欢迎回来</h2>
           </div>
           <div class="mdl-card__supporting-text post-excerpt" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
               <input id="userid" autocomplete="off" type="text" pattern="-?[0-9]*(\.[0-9]+)?" class="mdl-textfield__input" />
-              <label class="mdl-textfield__label">Your User Id</label>
-              <span class="mdl-textfield__error">User Id must be a number.</span>
+              <label class="mdl-textfield__label">QQ</label>
+              <span class="mdl-textfield__error">QQ Id must be a number.</span>
             </div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
               <input id="userpwd" type="password" class="mdl-textfield__input" />
-              <label class="mdl-textfield__label">Your Password</label>
-            </div></br>
-            <button style="margin-left:10px;background-color:#2196F3;" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent" onclick="checkpwd()">Submit</button>
+              <label class="mdl-textfield__label">密码</label>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input id="nickname" class="mdl-textfield__input" />
+              <label class="mdl-textfield__label">昵称(可选)</label>
+            </div>
+            </br>
+            <button style="margin-left:10px;background-color:#2196F3;" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent" onclick="login()">登录</button>
+            <button style="margin-left:10px;background-color:#2196F3;" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent" onclick="register()">注册</button>
             <span id="loading" class="mdl-spinner mdl-spinner--single-color mdl-js-spinner"></span>
+            <span id="tip" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;"></span>
           </div>
         </div>
       </div>
     </main>
+    <center><span style="color:gray;">出于用户安全考虑，不支持修改密码以及昵称，请谨慎填写。</span></center>
   </div>
 </body>
 <script src='https://ypig.tk/styles/material.min.js'></script>
