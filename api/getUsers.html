@@ -1,0 +1,147 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" />
+  <title>这里是猪猪的世界</title>
+  <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+  <script src="https://ypig.tk/styles/globalSettings.js"></script>
+  <script src="https://ypig.tk/styles/saveSvgAsPng.js"></script>
+  <script>
+    function is_weixin() {
+      try{
+			     window.vConsole.destroy()
+		  }catch (e){}
+	   }
+    function detectUa() {
+      var ua = window.navigator.userAgent.toLowerCase();
+      if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+           return true;
+      } else {
+           return false;
+      }
+    }
+    function getQueryString(name) {
+	        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+	        var url=decodeURI(decodeURI(window.location.search))
+	        var r = url.substr(1).match(reg);
+	        if (r != null) return unescape(r[2]); return null;
+	  }
+    function getSecret(validate) {
+      var mhkzri1 = validate.toString();
+      var OCsET$Of1 = "\x33" + "\x63" + "\x63" + "\x62" + "\x66" + "\x65" + "\x38" + "\x32" + "\x32" + "\x37" + "\x66" + "\x36" + "\x65" + "\x32" + "\x65" + "\x33" + "\x66" + "\x63" + "\x64" + "\x31" + "\x35" + "\x63" + "\x37" + "\x33" + "\x66" + "\x35" + "\x32" + "\x61" + "\x62" + "\x65" + "\x65" + "\x66" + "\x73\x65\x63\x72\x65\x74";
+      var _$vvAYJBS2 = OCsET$Of1.split(mhkzri1)[0];
+      return _$vvAYJBS2;
+    }
+	  function searchicon() {
+  		$.get("https://api.apiopen.top/getFeedback?apikey=" + secret,function(data,status){
+        if (data.result != []) {
+  				for (var i = 0;i < data.length;i ++ ) {
+  					addListItem(data[i].svg,data[i].title,i,keyword);
+  			 }
+          $("#loading").removeClass("is-active");
+          iconlist.style.display = "";
+  			}else {
+          addTipItem("没有反馈");
+        }
+     	});
+   	}
+	function addListItem(pic,text,id,key) {
+		$('<tr> style="margin-top:10px;"><td>' + pic + '</td><td style="margin-left:10px;font-size:25px;font-family:Microsoft YaHei, Helvetica, Arial, sans-serif;">' + text + '</td><td><button onclick="downpic(' + id + ')" style="margin-left:10px;background-color:#2196F3;" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent">下载</button></td></tr>').appendTo(".iconlist");
+	}
+  function addTipItem(text) {
+    $("<span style='margin-left:10px;font-size:25px;'>" + text + "</span>").appendTo(".iconlist");
+  }
+  $(document).ready(function() {
+		is_weixin();
+		var pictureLinks = [
+			"https://ws1.sinaimg.cn/large/0072Lfvtly1fyfbcc8crjj30xc0m6hdt.jpg",
+			"https://ws1.sinaimg.cn/large/0072Lfvtly1fyfbgcwt2nj31hc0u04qr.jpg"
+		];
+		var cssStyles = {
+			"background-image":"url('" + pictureLinks[Math.floor((Math.random()*2)+1) -1 ] + "')",
+			"background-color":"#000000",
+			"background-repeat":"no-repeat",
+			"background-size":"100% 100%",
+			"-moz-background-size":"100% 100%"
+		};
+	  if (getQueryString("search_keyword")) {
+      $("#loading").addClass("is-active");
+			searchicon(getQueryString("search_keyword"));
+		}
+	});
+	</script>
+</head>
+<!-- bing images https://api.isoyu.com/bing_images.php -->
+
+<body style="background-image:url('');background-color:#FCFCFC;" oncontextmenu='return false' ondragstart='return false' onselectstart='return false' onselect='document.selection.empty()' oncopy='document.selection.empty()' onbeforecopy='return false'
+  onmouseup='document.selection.empty()'>
+  <link rel='stylesheet prefetch' href='https://ypig.tk/styles/material.indigo-pink.min.css'>
+  <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header" style="background-color:#2196F3;">
+      <div class="mdl-layout__header-row">
+        <!-- Title -->
+        <span class="mdl-layout-title">Ypiggy</span>
+        <!-- Add spacer, to align navigation to the right -->
+        <div class="mdl-layout-spacer"></div>
+        <!-- Search
+            <form action="">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+                    <label class="mdl-button mdl-js-button mdl-button--icon" for="fixed-header-drawer-exp">
+                        <i class="material-icons">search</i>
+                    </label>
+                    <div class="mdl-textfield__expandable-holder">
+                        <input class="mdl-textfield__input" type="text" name="search_name" id="fixed-header-drawer-exp" />
+                    </div>
+                </div>
+            </form>-->
+
+      </div>
+    </header>
+    <div class="mdl-layout__drawer">
+      <span class="mdl-layout-title" style="color:#2196F3;">Ypig Inc.</span>
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="https://ypig.tk/?isUpdateRead=true">Home</a>
+        <a class="mdl-navigation__link" href="https://ypig.tk/functions/vpn">Vpn Service</a>
+      </nav>
+    </div>
+    <main class="mdl-layout__content">
+      <div class="mdl-grid">
+        <!--<div class="mdl-cell mdl-card mdl-shadow--2dp mdl-cell--6-col-desktop mdl-cell--4-col-tablet mdl-cell--2-col-phone" style="background-image:url('https://t.cn/E5lQLkz');webkit-background-size: cover;background-size: cover;">
+            </div>-->
+        <div class="mdl-cell mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone" style="background-color:#ffffff">
+          <div class="mdl-card__title">
+            <h2 class="mdl-card__title-text" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">品牌图标搜索</h2>
+          </div>
+          <div class="mdl-card__supporting-text post-excerpt" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">
+            <button type="submit" style="margin-left:10px;background-color:#2196F3;" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent" onclick="searchicon()">删除用户</button>
+            <button type="submit" style="margin-left:10px;background-color:#2196F3;" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent" onclick="searchicon()">新建用户</button>
+          </div>
+        </div>
+        <div class="mdl-cell mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone" style="background-color:#ffffff">
+          <div class="mdl-card__title">
+            <h2 class="mdl-card__title-text" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">查找结果</h2>
+          </div>
+          <div class="mdl-card__supporting-text post-excerpt" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">
+            <!-- list start -->
+            <div style="overflow:auto;">
+              <table border="0" class="iconlist" id="iconlist" style="display:none;">
+                <tr>
+                  <th>ID</th>
+                  <th>昵称</th>
+                  <th>密码</th>
+                </tr>
+              </table>
+            </div>
+            <span id="loading" class="mdl-spinner mdl-spinner--single-color mdl-js-spinner"></span>
+            <!-- list over -->
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+<script src='https://ypig.tk/styles/material.min.js'></script>
+
+</html>
