@@ -12,31 +12,17 @@
 			     window.vConsole.destroy()
 		  }catch (e){}
 	   }
-    function detectUa() {
-      var ua = window.navigator.userAgent.toLowerCase();
-      if (ua.match(/MicroMessenger/i) == 'micromessenger') {
-           return true;
-      } else {
-           return false;
-      }
-    }
     function getQueryString(name) {
 	        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
 	        var url=decodeURI(decodeURI(window.location.search))
 	        var r = url.substr(1).match(reg);
 	        if (r != null) return unescape(r[2]); return null;
 	  }
-    function getSecret(validate) {
-      var mhkzri1 = validate.toString();
-      var OCsET$Of1 = "\x33" + "\x63" + "\x63" + "\x62" + "\x66" + "\x65" + "\x38" + "\x32" + "\x32" + "\x37" + "\x66" + "\x36" + "\x65" + "\x32" + "\x65" + "\x33" + "\x66" + "\x63" + "\x64" + "\x31" + "\x35" + "\x63" + "\x37" + "\x33" + "\x66" + "\x35" + "\x32" + "\x61" + "\x62" + "\x65" + "\x65" + "\x66" + "\x73\x65\x63\x72\x65\x74";
-      var _$vvAYJBS2 = OCsET$Of1.split(mhkzri1)[0];
-      return _$vvAYJBS2;
-    }
 	  function searchicon() {
-  		$.get("https://api.apiopen.top/getFeedback?apikey=" + secret,function(data,status){
+  		$.get("https://api.apiopen.top/getFeedback?apikey=bb17e39349c7c6d37b3a302a379dae94",function(data,status){
         if (data.result != []) {
-  				for (var i = 0;i < data.length;i ++ ) {
-  					addListItem(data[i].svg,data[i].title,i,keyword);
+  				for (var i = 0;i < data.result.length;i ++ ) {
+  					addListItem(data.result[i].id,data.result[i].text,data.result[i].contact);
   			 }
           $("#loading").removeClass("is-active");
           iconlist.style.display = "";
@@ -45,11 +31,16 @@
         }
      	});
    	}
-	function addListItem(pic,text,id,key) {
-		$('<tr> style="margin-top:10px;"><td>' + pic + '</td><td style="margin-left:10px;font-size:25px;font-family:Microsoft YaHei, Helvetica, Arial, sans-serif;">' + text + '</td><td><button onclick="downpic(' + id + ')" style="margin-left:10px;background-color:#2196F3;" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent">下载</button></td></tr>').appendTo(".iconlist");
+	function addListItem(id,text,contact) {
+		$('<tr> style="margin-top:10px;"><td style="margin-left:10px;font-size:25px;font-family:Microsoft YaHei, Helvetica, Arial, sans-serif;">' + pic + '</td><td style="margin-left:10px;font-size:25px;font-family:Microsoft YaHei, Helvetica, Arial, sans-serif;">' + text + '</td><td style="margin-left:10px;font-size:25px;font-family:Microsoft YaHei, Helvetica, Arial, sans-serif;">' + contact + '</td><td><button onclick="delFeedback(' + id + ')" style="margin-left:10px;background-color:#2196F3;" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent">删除</button></td></tr>').appendTo(".iconlist");
 	}
   function addTipItem(text) {
     $("<span style='margin-left:10px;font-size:25px;'>" + text + "</span>").appendTo(".iconlist");
+  }
+  function delFeedback(id) {
+    $.get("https://api.apiopen.top/deleteFeedback?apikey=bb17e39349c7c6d37b3a302a379dae94&id=295",function(data,status) {
+      window.location.reload();
+    });
   }
   $(document).ready(function() {
 		is_weixin();
@@ -66,7 +57,7 @@
 		};
 	  if (getQueryString("search_keyword")) {
       $("#loading").addClass("is-active");
-			searchicon(getQueryString("search_keyword"));
+			searchicon();
 		}
 	});
 	</script>
@@ -112,7 +103,7 @@
             </div>-->
         <div class="mdl-cell mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone" style="background-color:#ffffff">
           <div class="mdl-card__title">
-            <h2 class="mdl-card__title-text" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">品牌图标搜索</h2>
+            <h2 class="mdl-card__title-text" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">后台反馈管理</h2>
           </div>
           <div class="mdl-card__supporting-text post-excerpt" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">
             <button type="submit" style="margin-left:10px;background-color:#2196F3;" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent" onclick="searchicon()">删除用户</button>
@@ -121,7 +112,7 @@
         </div>
         <div class="mdl-cell mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone" style="background-color:#ffffff">
           <div class="mdl-card__title">
-            <h2 class="mdl-card__title-text" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">查找结果</h2>
+            <h2 class="mdl-card__title-text" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">反馈:</h2>
           </div>
           <div class="mdl-card__supporting-text post-excerpt" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">
             <!-- list start -->
@@ -129,8 +120,9 @@
               <table border="0" class="iconlist" id="iconlist" style="display:none;">
                 <tr>
                   <th>ID</th>
-                  <th>昵称</th>
-                  <th>密码</th>
+                  <th>消息</th>
+                  <th>邮箱</th>
+                  <th>操作</th>
                 </tr>
               </table>
             </div>
