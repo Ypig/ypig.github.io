@@ -38,7 +38,7 @@
     $("<span style='margin-left:10px;font-size:25px;'>" + text + "</span>").appendTo(".iconlist");
   }
   function delFeedback(id) {
-    $.get("https://api.apiopen.top/deleteFeedback?apikey=bb17e39349c7c6d37b3a302a379dae94&id=295",function(data,status) {
+    $.get("https://api.apiopen.top/deleteFeedback?apikey=bb17e39349c7c6d37b3a302a379dae94&id=" + id,function(data,status) {
       window.location.reload();
     });
   }
