@@ -1,5 +1,7 @@
 function emptyPage() {
+  console.clear();
   document.write("");
+  window.location.replace("http://files.ypig.tk/notice");
 }
 
 function ck() {
