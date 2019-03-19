@@ -1,5 +1,5 @@
 function emptyPage() {
-  //document.write("");
+  document.write("");
 }
 
 function ck() {
