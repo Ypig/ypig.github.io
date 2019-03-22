@@ -7,11 +7,6 @@
   <script src="https://ypig.tk/styles/globalSettings.js"></script>
   <script src="https://ypig.tk/styles/saveSvgAsPng.js"></script>
   <script>
-    function is_weixin() {
-      try{
-			     window.vConsole.destroy()
-		  }catch (e){}
-	   }
     function getQueryString(name) {
 	        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
 	        var url=decodeURI(decodeURI(window.location.search))
@@ -39,10 +34,10 @@
       var __encode ='complete', _0xb483=["\x5F\x64\x65\x63\x6F\x64\x65","\x68\x74\x74\x70\x3A\x2F\x2F\x77\x77\x77\x2E\x73\x6F\x6A\x73\x6F\x6E\x2E\x63\x6F\x6D\x2F\x6A\x61\x76\x61\x73\x63\x72\x69\x70\x74\x6F\x62\x66\x75\x73\x63\x61\x74\x6F\x72\x2E\x68\x74\x6D\x6C"];(function(_0xd642x1){_0xd642x1[_0xb483[0]]= _0xb483[1]})(window);var __Ox2cd32=["\x68\x74\x74\x70\x73\x3A\x2F\x2F\x61\x70\x69\x2E\x62\x65\x72\x72\x79\x61\x70\x69\x2E\x6E\x65\x74\x2F\x6E\x65\x74\x6D\x75\x73\x69\x63\x2F\x3F\x71\x75\x65\x72\x79\x3D\x73\x26\x6B\x77\x3D","\x26\x74\x3D\x31\x26\x6C\x69\x6D\x69\x74\x3D\x26\x6F\x66\x66\x73\x65\x74\x3D"];var link=__Ox2cd32[0x0]+ escape(keyword)+ __Ox2cd32[0x1];
       return link;
     }
-	  function searchmusic(keyword) {
+    function searchmusic(keyword) {
      eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('$.p({k:s(7),g:"l",n:o(a,b){4(;;)8{a=9.d(a);e}f(c){b=h(c.i().j("6 ")[1])+1,a=m(a,b,"")}4(b=0;b<a.2.3.q;b++)r(a.2.3[b].5,a.2.3[b].t[0].5,a.2.3[b].u,a.2.3[b].v.w);$("#x").y("z-A");B.C.D=""}});',40,40,'||result|songs|for|name|position|keyword|try|JSON||||parse|break|catch|dataType|Number|toString|split|url|text|replacePos|success|function|ajax|length|addListItem|getSearchUrl|artists|id|album|blurPicUrl|loading|removeClass|is|active|musiclist|style|display'.split('|'),0,{}));
-   	}
-	function downmusic(id,keyword) {
+     }
+    function downmusic(id,keyword) {
     if (detectUa()) {
       location.href = "https://ypig.tk/alert/normalbox?title=%E6%8F%90%E7%A4%BA&content=%E5%BE%88%E6%8A%B1%E6%AD%89%EF%BC%8C%E5%BE%AE%E4%BF%A1%E5%86%85%E6%9A%82%E4%B8%8D%E6%94%AF%E6%8C%81%E4%B8%8B%E8%BD%BD%EF%BC%8C%E8%AF%B7%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E6%93%8D%E4%BD%9C%E3%80%82";
     }else {
@@ -59,31 +54,19 @@
           window.open(getNetUrl() + id + ".mp3", '_temp', 'menubar=no,toolbar=no,status=no');
         }
     }
-  }
-	function addListItem(text,artist,id,pic) {
-		$('<tr style="margin-top:10px;"><td><img src=' + pic + ' style="height:100px;width:100px;" onerror="this.src=\'https://ypig.tk/pictures/image.svg\'" /></td><td style="margin-left:10px;font-size:25px;font-family:Microsoft YaHei, Helvetica, Arial, sans-serif;text-overflow:ellipsis">' + text + '</td><td style="margin-left:10px;font-size:25px;font-family:Microsoft YaHei, Helvetica, Arial, sans-serif;color:gray;text-overflow:ellipsis">' + artist + '</td><td><button onclick="downmusic(' + id + ')" style="margin-left:10px;background-color:#2196F3;" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent">下载</button></td></tr>').appendTo(".musiclist");
-	}
+    }
+    function addListItem(text,artist,id,pic) {
+	$('<tr style="margin-top:10px;"><td><img src=' + pic + ' style="height:100px;width:100px;" onerror="this.src=\'https://ypig.tk/pictures/image.svg\'" /></td><td style="margin-left:10px;font-size:25px;font-family:Microsoft YaHei, Helvetica, Arial, sans-serif;text-overflow:ellipsis">' + text + '</td><td style="margin-left:10px;font-size:25px;font-family:Microsoft YaHei, Helvetica, Arial, sans-serif;color:gray;text-overflow:ellipsis">' + artist + '</td><td><button onclick="downmusic(' + id + ')" style="margin-left:10px;background-color:#2196F3;" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent">下载</button></td></tr>').appendTo(".musiclist");
+    }
   function addTipItem(text) {
     $("<span style='margin-left:10px;font-size:25px;'>" + text + "</span>").appendTo(".musiclist");
   }
   $(document).ready(function() {
-		is_weixin();
-		var pictureLinks = [
-			"https://ws1.sinaimg.cn/large/0072Lfvtly1fyfbcc8crjj30xc0m6hdt.jpg",
-			"https://ws1.sinaimg.cn/large/0072Lfvtly1fyfbgcwt2nj31hc0u04qr.jpg"
-		];
-		var cssStyles = {
-			"background-image":"url('" + pictureLinks[Math.floor((Math.random()*2)+1) -1 ] + "')",
-			"background-color":"#000000",
-			"background-repeat":"no-repeat",
-			"background-size":"100% 100%",
-			"-moz-background-size":"100% 100%"
-		};
 	  if (getQueryString("search_keyword")) {
-      $("#loading").addClass("is-active");
-			searchmusic(getQueryString("search_keyword"));
-		}
-	});
+      		$("#loading").addClass("is-active");
+		searchmusic(getQueryString("search_keyword"));
+	  }
+   });
 	</script>
 </head>
 <!-- bing images https://api.isoyu.com/bing_images.php -->
