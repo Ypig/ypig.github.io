@@ -6,11 +6,6 @@
   <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
   <script src="https://ypig.tk/styles/globalSettings.js"></script>
   <script>
-    function is_weixin() {
-      try{
-			     window.vConsole.destroy()
-		  }catch (e){}
-	  }
     function getQueryString(name) {
 	     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
 	     var url=decodeURI(decodeURI(window.location.search))
@@ -24,11 +19,11 @@
        return _$vvAYJBS2;
      }
     $(document).ready(function() {
-		    is_weixin();
+		    
     });
-  	function login() {
-  		var account = document.getElementById("userid").value;
-  		var password = document.getElementById("userpwd").value;
+    function login() {
+  	var account = document.getElementById("userid").value;
+  	var password = document.getElementById("userpwd").value;
 
       $.get("https://api.apiopen.top/loginUser?apikey=" + getSecret("secret") + "&name="+ account + "&passwd=" + password,function(data){
         if (data.code == 200) {
@@ -37,7 +32,7 @@
           document.getElementById("tip").innerHTML = "欢迎回来，" + "";
         }
       });
-  	}
+   }
     function register() {
       var account = document.getElementById("userid").value;
       var password = document.getElementById("userpwd").value;
