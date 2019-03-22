@@ -6,12 +6,6 @@
   <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
   <script src="https://ypig.tk/styles/globalSettings.js"></script>
   <script>
-    function is_weixin() {
-      try {
-        window.vConsole.destroy()
-      } catch (e) {}
-    }
-
     function getQueryString(name) {
       var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
       var url = decodeURI(decodeURI(window.location.search))
@@ -20,7 +14,6 @@
       return null;
     }
     $(document).ready(function() {
-      is_weixin()
       var pictureLinks = [
         "https://ws1.sinaimg.cn/large/0072Lfvtly1fyfbcc8crjj30xc0m6hdt.jpg",
         "https://ws1.sinaimg.cn/large/0072Lfvtly1fyfbgcwt2nj31hc0u04qr.jpg"
