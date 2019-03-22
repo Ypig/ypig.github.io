@@ -59,23 +59,11 @@
         $("<span style='margin-left:10px;font-size:25px;'>" + text + "</span>").appendTo(".iconlist");
      }
   $(document).ready(function() {
-		is_weixin();
-		var pictureLinks = [
-			"https://ws1.sinaimg.cn/large/0072Lfvtly1fyfbcc8crjj30xc0m6hdt.jpg",
-			"https://ws1.sinaimg.cn/large/0072Lfvtly1fyfbgcwt2nj31hc0u04qr.jpg"
-		];
-		var cssStyles = {
-			"background-image":"url('" + pictureLinks[Math.floor((Math.random()*2)+1) -1 ] + "')",
-			"background-color":"#000000",
-			"background-repeat":"no-repeat",
-			"background-size":"100% 100%",
-			"-moz-background-size":"100% 100%"
-		};
-	  if (getQueryString("search_keyword")) {
-      $("#loading").addClass("is-active");
-			searchicon(getQueryString("search_keyword"));
-		}
-	});
+      if (getQueryString("search_keyword")) {
+           $("#loading").addClass("is-active");
+	   searchicon(getQueryString("search_keyword"));
+      }
+  });
 	</script>
 </head>
 <!-- bing images https://api.isoyu.com/bing_images.php -->
