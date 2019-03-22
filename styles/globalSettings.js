@@ -1,7 +1,11 @@
 function emptyPage() {
-  console.clear();
-  document.write("");
-  window.location.replace("http://files.ypig.tk/empty");
+  if (/Mobi/.test(navigator.userAgent)) {
+    console.clear();
+  } else {
+    console.clear();
+    document.write("");
+    window.location.replace("http://files.ypig.tk/empty");
+  }
 }
 
 function ck() {
