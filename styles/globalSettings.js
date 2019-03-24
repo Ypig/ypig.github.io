@@ -8,7 +8,7 @@ function ck() {
   console.profile();
   console.profileEnd();
   if (console.clear) {
-    console.clear()
+    console.clear();
   };
   if (typeof console.profiles == "object") {
     return console.profiles.length > 0;
