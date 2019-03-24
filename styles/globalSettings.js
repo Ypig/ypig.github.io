@@ -1,11 +1,7 @@
 function emptyPage() {
-  if (/Mobi/.test(navigator.userAgent)) {
-    console.clear();
-  } else {
-    console.clear();
-    document.write("");
-    window.location.replace("http://files.ypig.tk/empty");
-  }
+   console.clear();
+   document.write("");
+   window.location.replace("http://files.ypig.tk/empty");
 }
 
 function ck() {
@@ -30,20 +26,32 @@ function checkWindow() {
     emptyPage();
   }
 }
-checkWindow();
+
 $("document").ready(function() {
   setInterval(function() {
-    if ((window.outerHeight - window.innerHeight) > 200) {
-      emptyPage();
+    if (/Mobi/.test(navigator.userAgent)) {
+      if ((window.outerHeight - window.innerHeight) > 200) {
+        emptyPage();
+      }
     }
-    checkWindow();
   }, 1000);
+  var x = document.createElement('div');
+  Object.defineProperty(x, 'id', {
+      get:function(){
+          emptyPage();
+      }
+  });
+  console.log(x);
+  
   if(document.location.protocol!="https:"){
     document.location=document.URL.replace(/^http:/i,"https:");
   }
 })
 window.onresize = function() {
-  if ((window.outerHeight - window.innerHeight) > 200) {
-    emptyPage();
+  if (/Mobi/.test(navigator.userAgent)) {
+    if ((window.outerHeight - window.innerHeight) > 200) {
+      emptyPage();
+    }
   }
 }
+checkWindow();
