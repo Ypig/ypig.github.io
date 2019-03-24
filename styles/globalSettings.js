@@ -46,7 +46,7 @@ $("document").ready(function() {
   if(document.location.protocol!="https:"){
     document.location=document.URL.replace(/^http:/i,"https:");
   }
-})
+});
 window.onresize = function() {
   if (/Mobi/.test(navigator.userAgent)) {
     if ((window.outerHeight - window.innerHeight) > 200) {
