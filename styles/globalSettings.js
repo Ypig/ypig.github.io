@@ -53,5 +53,5 @@ window.onresize = function() {
       emptyPage();
     }
   }
-}
+};
 checkWindow();
