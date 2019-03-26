@@ -29,7 +29,7 @@ function checkWindow() {
 
 $("document").ready(function() {
   setInterval(function() {
-    if (/Mobi/.test(navigator.userAgent)) {
+    if (/Mobi/.test(navigator.userAgent) != true) {
       if ((window.outerHeight - window.innerHeight) > 200) {
         emptyPage();
       }
@@ -48,7 +48,7 @@ $("document").ready(function() {
   }
 })
 window.onresize = function() {
-  if (/Mobi/.test(navigator.userAgent)) {
+  if (/Mobi/.test(navigator.userAgent != true)) {
     if ((window.outerHeight - window.innerHeight) > 200) {
       emptyPage();
     }
