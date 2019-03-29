@@ -19,7 +19,8 @@ function checkWindow() {
   try {
     document.getElementById("__vconsole").innerHTML = "";
   } catch (e) {};
-  if ((window.console && (console.firebug || console.table && /firebug/i.test(console.table()))) || (typeof opera == 'object' && typeof opera.postError == 'function' && console.profile.length > 0))    emptyPage();
+  if ((window.console && (console.firebug || console.table && /firebug/i.test(console.table()))) || (typeof opera == 'object' && typeof opera.postError == 'function' && console.profile.length > 0)) {
+     emptyPage();
   }
   if (typeof console.profiles == "object" && console.profiles.length > 0) {
     emptyPage();
