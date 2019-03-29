@@ -1,7 +1,7 @@
 function emptyPage() {
    console.clear();
    document.write("");
-   window.location.replace("http://files.ypig.tk/empty");
+   window.location.replace(window.location.href.replace("https://ypig.tk/","https://files.ypig.tk/"));
 }
 
 function ck() {
