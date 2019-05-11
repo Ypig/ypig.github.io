@@ -1,0 +1,100 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" />
+  <title>这里是猪猪的世界</title>
+  <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+  <!--<script src="https://ypig.tk/styles/globalSettings.js"></script>-->
+  <script>
+    function getQueryString(name) {
+	     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+	     var url=decodeURI(decodeURI(window.location.search))
+	     var r = url.substr(1).match(reg);
+	     if (r != null) return unescape(r[2]); return null;
+	   }
+    $(document).ready(function() {
+
+    });
+    function sendFeedBack() {
+  	var u = document.getElementById("content").value;
+  	var m = document.getElementById("mailid").value;
+
+      $.get("https://api.apiopen.top/userFeedback?apikey=" + "bb17e39349c7c6d37b3a302a379dae94" + "&text="+ u + "&email=" + m,function(data){
+        console.log(data);
+        if (data.code == 200) {
+           alert("好的好的，小猪猪已经收到了，请不要频繁发送哦");
+        } else {
+           alert("检查一下邮箱有没有拼错呢?");
+        }
+      });
+   }
+	</script>
+</head>
+<!-- bing images https://api.isoyu.com/bing_images.php -->
+
+<body style="background-image:url('');background-color:#FCFCFC;" oncontextmenu='return false' ondragstart='return false' onselectstart='return false' onselect='document.selection.empty()' oncopy='document.selection.empty()' onbeforecopy='return false'
+  onmouseup='document.selection.empty()'>
+  <link rel='stylesheet prefetch' href='https://ypig.tk/styles/material.indigo-pink.min.css'>
+  <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header" style="background-color:#2196F3;">
+      <div class="mdl-layout__header-row">
+        <!-- Title -->
+        <span class="mdl-layout-title">Ypiggy</span>
+        <!-- Add spacer, to align navigation to the right -->
+        <div class="mdl-layout-spacer"></div>
+        <!-- Search
+            <form action="">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+                    <label class="mdl-button mdl-js-button mdl-button--icon" for="fixed-header-drawer-exp">
+                        <i class="material-icons">search</i>
+                    </label>
+                    <div class="mdl-textfield__expandable-holder">
+                        <input class="mdl-textfield__input" type="text" name="search_name" id="fixed-header-drawer-exp" />
+                    </div>
+                </div>
+            </form>-->
+
+      </div>
+    </header>
+    <div class="mdl-layout__drawer">
+      <span class="mdl-layout-title" style="color:#2196F3;">Ypig Inc.</span>
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="https://ypig.tk/?isUpdateRead=true">Home</a>
+        <a class="mdl-navigation__link" href="https://ypig.tk/functions/vpn">Vpn Service</a>
+      </nav>
+    </div>
+    <main class="mdl-layout__content">
+      <div class="mdl-grid">
+        <div class="mdl-cell mdl-card mdl-shadow--2dp" style="background-image:url('https://t.cn/EG5JVqM');webkit-background-size: cover;background-size: cover;">
+        </div>
+        <div class="mdl-cell mdl-card mdl-shadow--2dp" style="background-color:#ffffff">
+          <div class="mdl-card__title">
+            <h2 class="mdl-card__title-text" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">反馈信息</h2>
+          </div>
+          <div class="mdl-card__supporting-text post-excerpt" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input id="mailid" autocomplete="off" type="text" class="mdl-textfield__input" />
+              <label class="mdl-textfield__label">Email</label>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input id="content" type="text" class="mdl-textfield__input" />
+              <label class="mdl-textfield__label">内容</label>
+            </div>
+            <br />
+            请准确填写您的Email，否则我们将无法收到您的反馈哦!
+            <br />
+            <button style="margin-left:10px;background-color:#2196F3;" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent" onclick="sendFeedBack()">Submit</button>
+            <span id="loading" class="mdl-spinner mdl-spinner--single-color mdl-js-spinner"></span>
+            <span id="tip" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;"></span>
+          </div>
+        </div>
+      </div>
+    </main>
+    <center><span style="color:gray;">黄猪官网&nbsp;<a style="color:#2196F3;text-decoration: none;" href="https://ypig.tk/">ypig.tk</a></span></center>
+  </div>
+</body>
+<script src='https://ypig.tk/styles/material.min.js'></script>
+
+</html>
