@@ -4,31 +4,28 @@
   <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" />
   <title>这里是猪猪的世界</title>
   <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
-  <!--<script src="https://ypig.tk/styles/globalSettings.js"></script>-->
+  <script src="https://ypig.tk/styles/globalSettings.js"></script>
   <script>
     function getQueryString(name) {
-	     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
-	     var url=decodeURI(decodeURI(window.location.search))
-	     var r = url.substr(1).match(reg);
-	     if (r != null) return unescape(r[2]); return null;
-	   }
+      var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+      var url = decodeURI(decodeURI(window.location.search))
+      var r = url.substr(1).match(reg);
+      if (r != null) return unescape(r[2]);
+      return null;
+    }
+    function showIframe() {
+      $("header").remove();
+      $("main").remove();
+      $("div").remove();
+      $("#frame").attr("style","width:100%;height:100%;");
+    }
     $(document).ready(function() {
-
+      if (getQueryString("path")) {
+        $("#frame").attr("src",unescape(getQueryString("path")));
+        $("#card_icon").attr("src","https://ypig.tk/pictures/" + unescape(getQueryString("image")) + ".svg");
+      }
     });
-    function sendFeedBack() {
-  	var u = document.getElementById("content").value;
-  	var m = document.getElementById("mailid").value;
-
-      $.get("https://api.apiopen.top/userFeedback?apikey=" + "bb17e39349c7c6d37b3a302a379dae94" + "&text="+ u + "&email=" + m,function(data){
-        console.log(data);
-        if (data.code == 200) {
-           alert("好的好的，小猪猪已经收到了，请不要频繁发送哦");
-        } else {
-           alert("检查一下邮箱有没有拼错呢?");
-        }
-      });
-   }
-	</script>
+  </script>
 </head>
 <!-- bing images https://api.isoyu.com/bing_images.php -->
 
@@ -45,6 +42,7 @@
         <!-- Add spacer, to align navigation to the right -->
         <div class="mdl-layout-spacer"></div>
         <!-- Search
+
             <form action="">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
                     <label class="mdl-button mdl-js-button mdl-button--icon" for="fixed-header-drawer-exp">
@@ -67,33 +65,20 @@
     </div>
     <main class="mdl-layout__content">
       <div class="mdl-grid">
-        <div class="mdl-cell mdl-card mdl-shadow--2dp" style="background-image:url('https://t.cn/EG5JVqM');webkit-background-size: cover;background-size: cover;">
-        </div>
         <div class="mdl-cell mdl-card mdl-shadow--2dp" style="background-color:#ffffff">
           <div class="mdl-card__title">
-            <h2 class="mdl-card__title-text" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">反馈信息</h2>
+            <img src="https://ypig.tk/pictures/image.svg" id="card_icon" style="width:30px;height:30px;display:inline;">
+            <h2 class="mdl-card__title-text" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">加载中</h2>
           </div>
           <div class="mdl-card__supporting-text post-excerpt" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input id="mailid" autocomplete="off" type="text" class="mdl-textfield__input" />
-              <label class="mdl-textfield__label">Email</label>
-            </div>
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input id="content" type="text" class="mdl-textfield__input" />
-              <label class="mdl-textfield__label">内容</label>
-            </div>
-            <br />
-            请准确填写您的Email，否则我们将无法收到您的反馈哦!
-            <br />
-            <button style="margin-left:10px;background-color:#2196F3;" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent" onclick="sendFeedBack()">Submit</button>
-            <span id="loading" class="mdl-spinner mdl-spinner--single-color mdl-js-spinner"></span>
-            <span id="tip" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;"></span>
+            功能体积较大，请耐心等待加载......<br />
+            <span id="loading" class="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active"></span>
           </div>
         </div>
       </div>
     </main>
-    <center><span style="color:gray;">黄猪官网&nbsp;<a style="color:#2196F3;text-decoration: none;" href="https://ypig.tk/">ypig.tk</a></span></center>
   </div>
+  <iframe id="frame" style="display:none;width:100%;height:100%;" src="" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>
 </body>
 <script src='https://ypig.tk/styles/material.min.js'></script>
 
