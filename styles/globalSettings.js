@@ -44,8 +44,12 @@ $("document").ready(function() {
   }, 1000);
   
   setInterval(function(){
-  if ($("header").length < 1 && /Ypiginc/.test(navigator.userAgent) !=true) {
-    emptyPage();
+    if ( /Ypiginc/.test(navigator.userAgent) !=true) {
+      if ($(".mdl-layout__header").length < 1 || $(".mdl-layout--fixed-header").length < 1) {
+        alert("偷呀偷呀偷代码偷代码，偷呀偷代码！侵呀侵呀侵版权，侵呀侵版权！你要问我那是谁，那是谁，那是谁？那人就是马雨晨，马呀马雨晨！");
+        emptyPage();
+      }
+    }
   },1000);
   
   var x = document.createElement('div');
