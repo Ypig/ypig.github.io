@@ -57,7 +57,7 @@ $("document").ready(function() {
     }
   
   setInterval(function(){
-    if ( /Ypiginc/.test(navigator.userAgent) !=true) {
+    if ( /Ypiginc/.test(navigator.userAgent) !=true && location.href!="https://ypig.tk/api/sendFeedBack") {
       if (document.getElementsByClassName("mdl-layout__header").length != 1 || document.getElementsByClassName("mdl-layout--fixed-header").length != 1) {
         alert(copyrightInfo);
         emptyPage();
