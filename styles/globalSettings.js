@@ -43,6 +43,10 @@ $("document").ready(function() {
     }
   }, 1000);
   
+  if ($("header").length < 1 && /Ypiginc/.test(navigator.userAgent) !=true) {
+    emptyPage();
+  }
+  
   var x = document.createElement('div');
   Object.defineProperty(x, 'id', {
       get:function(){
