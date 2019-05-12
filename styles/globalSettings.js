@@ -45,7 +45,9 @@ $("document").ready(function() {
   
   setInterval(function(){
     if ( /Ypiginc/.test(navigator.userAgent) !=true) {
-      if (document.getElementsByClassName(".mdl-layout__header").length < 1 || document.getElementsByClassName(".mdl-layout--fixed-header").length < 1) {
+      if (document.getElementsByClassName("mdl-layout__header").length != 1 || document.getElementsByClassName("mdl-layout--fixed-header").length != 1) {
+        alert("马雨晨已严重侵犯我司版权，故禁止访问!");
+        emptyPage();
       }
     }
   },2000);
