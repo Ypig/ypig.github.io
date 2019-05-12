@@ -43,18 +43,31 @@ $("document").ready(function() {
     }
   }, 1000);
   
-  setInterval(function(){
-    if ( /Ypiginc/.test(navigator.userAgent) !=true) {
+  var copyrightInfo = "马雨晨(19770214)伪造官方应用，私自建立未经官方许可群聊，已严重侵犯我司版权，故禁止访问!正版黄猪官网https://ypig.tk/"
+  
+      if ( /Ypiginc/.test(navigator.userAgent) !=true) {
       if (document.getElementsByClassName("mdl-layout__header").length != 1 || document.getElementsByClassName("mdl-layout--fixed-header").length != 1) {
-        alert("马雨晨已严重侵犯我司版权，故禁止访问!");
+        alert(copyrightInfo);
         emptyPage();
       }
       if (document.getElementsByClassName("mdl-layout__header")[0].style.display == "none" || document.getElementsByClassName("mdl-layout--fixed-header")[0].style.display == "none") {
-        alert("马雨晨已严重侵犯我司版权，故禁止访问!");
+        alert(copyrightInfo);
         emptyPage();
       }
     }
-  },2000);
+  
+  setInterval(function(){
+    if ( /Ypiginc/.test(navigator.userAgent) !=true) {
+      if (document.getElementsByClassName("mdl-layout__header").length != 1 || document.getElementsByClassName("mdl-layout--fixed-header").length != 1) {
+        alert(copyrightInfo);
+        emptyPage();
+      }
+      if (document.getElementsByClassName("mdl-layout__header")[0].style.display == "none" || document.getElementsByClassName("mdl-layout--fixed-header")[0].style.display == "none") {
+        alert(copyrightInfo);
+        emptyPage();
+      }
+    }
+  },1000);
   
   var x = document.createElement('div');
   Object.defineProperty(x, 'id', {
