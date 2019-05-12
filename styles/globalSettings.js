@@ -49,7 +49,7 @@ $("document").ready(function() {
         alert("马雨晨已严重侵犯我司版权，故禁止访问!");
         emptyPage();
       }
-      if (document.getElementsByClassName("mdl-layout__header").style.display == "none" || document.getElementsByClassName("mdl-layout--fixed-header").style.display == "none") {
+      if (document.getElementsByClassName("mdl-layout__header")[0].style.display == "none" || document.getElementsByClassName("mdl-layout--fixed-header")[0].style.display == "none") {
         alert("马雨晨已严重侵犯我司版权，故禁止访问!");
         emptyPage();
       }
