@@ -34,17 +34,6 @@ function checkWindow() {
   }
 }
 
-var common = ["mdl-layout__header","mdl-layout__drawer","mdl-layout__content","mdl-grid","mdl-cell","mdl-card","mdl-layout","mdl-card__supporting-text","mdl-card__title"];
-function detectClasses() {
-  if (/Ypiginc/.test("navigator.userAgent") != true) {
-    for (var i = 0;i<common.length;i++) {
-      if ($("." + common[i]).length < 1) {
-        emptyPage();
-      }
-    }
-  }
-}
-
 $("document").ready(function() {
   setInterval(function() {
     if (/Mobi/.test(navigator.userAgent) != true) {
@@ -53,8 +42,7 @@ $("document").ready(function() {
       }
     }
   }, 1000);
-  window.addEventListener("DOMNodeRemoved", detectClasses, true);  
-  window.addEventListener("DOMNodeRemovedFromDocument", detectClasses, true);  
+  
   var x = document.createElement('div');
   Object.defineProperty(x, 'id', {
       get:function(){
