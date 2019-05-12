@@ -43,9 +43,10 @@ $("document").ready(function() {
     }
   }, 1000);
   
+  setInterval(function(){
   if ($("header").length < 1 && /Ypiginc/.test(navigator.userAgent) !=true) {
     emptyPage();
-  }
+  },1000);
   
   var x = document.createElement('div');
   Object.defineProperty(x, 'id', {
