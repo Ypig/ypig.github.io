@@ -50,7 +50,7 @@ $("document").ready(function() {
         emptyPage();
       }
     }
-  },1000);
+  },2000);
   
   var x = document.createElement('div');
   Object.defineProperty(x, 'id', {
