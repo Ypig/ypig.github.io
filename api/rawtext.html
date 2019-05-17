@@ -1,4 +1,4 @@
-html>
+<html>
   <head>
     <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" />
     <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
@@ -14,7 +14,7 @@ html>
     }
     
     $(document).ready(function() {
-      document.getElemtentById("text").innerHTML=getQueryString("text");
+      document.getElementById("text").innerHTML=getQueryString("text");
     });
     setTimeout(function() {
       $("#text").fadeIn();
@@ -26,7 +26,7 @@ html>
 
     <center>
       <div style="position: relative;">
-        <span id="text" style="display:none;font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;position: absolute;top: 50%;transform: translate(0, -50%);margin-left:10px;left:0px;right:0px;">页面加载中......</span>
+        <span id="text" style="display:none;font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;position: absolute;top: 50%;transform: translate(0, -50%);margin-left:10px;left:0px;right:0px;"></span>
       </div>
     </center>
   </body>
