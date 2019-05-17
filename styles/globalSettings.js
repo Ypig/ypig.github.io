@@ -45,7 +45,7 @@ $("document").ready(function() {
   
   var copyrightInfo = "马雨晨(19770214)伪造官方应用，私自建立未经官方许可群聊，已严重侵犯我司版权，故禁止访问!正版黄猪官网https://ypig.tk/"
   
-    if ( /Ypiginc/.test(navigator.userAgent) !=true && location.path !="/api/sendFeedBack") {
+    if ( /Ypiginc/.test(navigator.userAgent) !=true && location.pathname !="/api/sendFeedBack" && location.pathname !="/functions/white_noise/index") {
       if (document.getElementsByClassName("mdl-layout__header").length != 1 || document.getElementsByClassName("mdl-layout--fixed-header").length != 1) {
         alert(copyrightInfo);
         emptyPage();
@@ -57,7 +57,7 @@ $("document").ready(function() {
     }
   
   setInterval(function(){
-    if ( /Ypiginc/.test(navigator.userAgent) !=true && location.path !="/api/sendFeedBack") {
+    if ( /Ypiginc/.test(navigator.userAgent) !=true && location.pathname !="/api/sendFeedBack" && location.pathname !="/functions/white_noise/index") {
       if (document.getElementsByClassName("mdl-layout__header").length != 1 || document.getElementsByClassName("mdl-layout--fixed-header").length != 1) {
         alert(copyrightInfo);
         emptyPage();
