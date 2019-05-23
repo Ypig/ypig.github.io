@@ -3,6 +3,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" />
     <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
     <title>rawtext</title>
+    <!--[if IE]>
+      <script src="https://ypig.tk/styles/ie.js"></script>
+    <![endif]-->
   </head>
   <script>
     function getQueryString(name) {
@@ -12,7 +15,7 @@
       if (r != null) return unescape(r[2]);
       return null;
     }
-    
+
     $(document).ready(function() {
       document.getElementById("text").innerHTML=getQueryString("text");
     });

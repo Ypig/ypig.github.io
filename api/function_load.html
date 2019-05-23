@@ -13,16 +13,17 @@
       if (r != null) return unescape(r[2]);
       return null;
     }
+
     function showIframe() {
       $("header").remove();
       $("main").remove();
       $("div").remove();
-      $("#frame").attr("style","width:100%;height:100%;");
+      $("#frame").attr("style", "width:100%;height:100%;");
     }
     $(document).ready(function() {
       if (getQueryString("path")) {
-        $("#frame").attr("src",unescape(getQueryString("path")));
-        $("#card_icon").attr("src","https://ypig.tk/pictures/" + unescape(getQueryString("image")) + ".svg");
+        $("#frame").attr("src", unescape(getQueryString("path")));
+        $("#card_icon").attr("src", "https://ypig.tk/pictures/" + unescape(getQueryString("image")) + ".svg");
       }
     });
   </script>
@@ -55,6 +56,9 @@
             </form>-->
 
       </div>
+      <!--[if IE]>
+        <script src="https://ypig.tk/styles/ie.js"></script>
+      <![endif]-->
     </header>
     <div class="mdl-layout__drawer">
       <span class="mdl-layout-title" style="color:#2196F3;">Ypig Inc.</span>
