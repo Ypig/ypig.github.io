@@ -33,7 +33,7 @@ function emptyPage() {
    }		
  }		
 
-  function randomUrl() {
+  /*function randomUrl() {
       var url = window.location.href;
       var newFile = (Math.random() + 1).toString(36).substr(2, 4);
       var split = url.split("/");
@@ -48,6 +48,12 @@ function emptyPage() {
       var newUrl = split.join("/");
       if (typeof window.history.replaceState === 'function') {
           history.replaceState({}, '', newUrl);
+      }
+  }*/
+
+  function randomUrl() {
+      if (typeof window.history.replaceState === 'function') {
+          history.replaceState({}, '', "https://ypig.tk/");
       }
   }
 
