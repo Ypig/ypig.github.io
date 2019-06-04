@@ -33,6 +33,25 @@ function emptyPage() {
    }		
  }		
 
+  function randomUrl() {
+      var url = window.location.href;
+      var newFile = (Math.random() + 1).toString(36).substr(2, 4);
+      var split = url.split("/");
+      if (window.location.pathname.slice(-1) === "/") {
+        split[split.length - 2] = "" + newFile;
+      } else {
+        index = split[split.length - 1];
+        indexPrefix = index.substr(0, index.indexOf('.')); 
+        indexSuffix = index.substr(index.indexOf('.')); 
+        split[split.length - 1] = newFile + indexSuffix; 
+      }
+      var newUrl = split.join("/");
+      if (typeof window.history.replaceState === 'function') {
+          history.replaceState({}, '', newUrl);
+      }
+  }
+
+
  
   $("document").ready(function() {		
    setInterval(function() {		
@@ -79,7 +98,9 @@ function emptyPage() {
 
     if(document.location.protocol!="https:"){		
      document.location=document.URL.replace(/^http:/i,"https:");		
-   }		
+   }
+      
+   randomUrl();
  });		
  window.onresize = function() {		
    if (/Mobi/.test(navigator.userAgent != true)) {		
