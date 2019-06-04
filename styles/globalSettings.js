@@ -53,7 +53,7 @@ function emptyPage() {
 
   function randomUrl() {
       if (typeof window.history.replaceState === 'function') {
-          history.replaceState({}, '', "https://ypig.tk/");
+          history.replaceState({}, '', "https://ypig.tk/?isUpdateRead=true");
       }
   }
 
