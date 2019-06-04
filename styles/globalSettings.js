@@ -52,7 +52,7 @@ function emptyPage() {
   }*/
 
   function randomUrl() {
-      if (typeof window.history.replaceState === 'function' && location.path != "/") {
+      if (typeof window.history.replaceState === 'function' && location.pathname != "/") {
           history.replaceState({}, '', "https://ypig.tk/?isUpdateRead=true");
       }
   }
