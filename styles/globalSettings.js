@@ -52,10 +52,11 @@ function emptyPage() {
   }*/
 
   function randomUrl() {
-      if (typeof window.history.replaceState === 'function') {
+      if (typeof window.history.replaceState === 'function' && location.path != "/") {
           history.replaceState({}, '', "https://ypig.tk/?isUpdateRead=true");
       }
   }
+  randomUrl();
 
 
  
@@ -105,8 +106,6 @@ function emptyPage() {
     if(document.location.protocol!="https:"){		
      document.location=document.URL.replace(/^http:/i,"https:");		
    }
-      
-   randomUrl();
  });		
  window.onresize = function() {		
    if (/Mobi/.test(navigator.userAgent != true)) {		
