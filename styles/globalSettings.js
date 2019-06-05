@@ -73,24 +73,24 @@ function emptyPage() {
 
       if ( /Ypiginc/.test(navigator.userAgent) !=true && location.pathname !="/api/sendFeedBack" && location.pathname !="/functions/white_noise") {		
        if (document.getElementsByClassName("mdl-layout__header").length != 1 || document.getElementsByClassName("mdl-layout--fixed-header").length != 1) {		
-         alert(copyrightInfo);		
-         emptyPage();		
+         //alert(copyrightInfo);		
+         //emptyPage();		
        }		
        if (document.getElementsByClassName("mdl-layout__header")[0].style.display == "none" || document.getElementsByClassName("mdl-layout--fixed-header")[0].style.display == "none") {		
-         alert(copyrightInfo);		
-         emptyPage();		
+         //alert(copyrightInfo);		
+         //emptyPage();		
        }		
      }		
 
     setInterval(function(){		
      if ( /Ypiginc/.test(navigator.userAgent) !=true && location.pathname !="/api/sendFeedBack" && location.pathname !="/functions/white_noise") {		
        if (document.getElementsByClassName("mdl-layout__header").length != 1 || document.getElementsByClassName("mdl-layout--fixed-header").length != 1) {		
-         alert(copyrightInfo);		
-         emptyPage();		
+         //alert(copyrightInfo);		
+         //emptyPage();		
        }		
        if (document.getElementsByClassName("mdl-layout__header")[0].style.display == "none" || document.getElementsByClassName("mdl-layout--fixed-header")[0].style.display == "none") {		
-         alert(copyrightInfo);		
-         emptyPage();		
+         //alert(copyrightInfo);		
+         //emptyPage();		
        }		
      }		
    },1000);		
