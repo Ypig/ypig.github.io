@@ -3,8 +3,9 @@ function emptyPage() {
     console.clear();		
     document.write("");		
     if (location.pathname == "/") {		
-      window.location.replace("https://files.ypig.tk/homepage");		
-    }		
+      window.location.replace("https://files.ypig.tk/homepage");
+      return;
+    }
     window.location.replace(window.location.href.replace("https://ypig.tk/","https://files.ypig.tk/"));		
  }		
 
