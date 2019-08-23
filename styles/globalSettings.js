@@ -52,7 +52,7 @@ function emptyPage() {
   }*/
 
   function randomUrl() {
-      if (typeof window.history.replaceState === 'function' && location.pathname != "/functions/musicdown"  && location.pathname != "/functions/icon") {
+      if (typeof window.history.replaceState === 'function' && location.pathname != "/functions/musicdown"  && location.pathname != "/functions/icon" && location.pathname != "/functions/mindmap" && location.pathname != "/functions/drums/index" && locaation.pathname != "/functions/white_noise") {
           history.replaceState({}, '', "https://ypig.tk/" + location.search);
       }
   }
