@@ -6,7 +6,7 @@ function emptyPage() {
       window.location.replace("https://files.ypig.tk/homepage");
       return;
     }
-    window.location.replace(window.location.href.replace("https://ypig.tk/","https://files.ypig.tk/"));		
+    window.location.replace(window.location.href.replace("/","https://files.ypig.tk/"));		
  }		
 
  
@@ -54,7 +54,7 @@ function emptyPage() {
 
   function randomUrl() {
       if (typeof window.history.replaceState === 'function' && location.pathname != "/functions/musicdown"  && location.pathname != "/functions/icon" && location.pathname != "/functions/mindmap" && location.pathname != "/functions/drums/index" && location.pathname != "/functions/white_noise" && location.pathname != "/api/function_load") {
-          history.replaceState({}, '', "https://ypig.tk/" + location.search);
+          history.replaceState({}, '', "/" + location.search);
       }
   }
   randomUrl();
@@ -70,7 +70,7 @@ function emptyPage() {
      }		
    }, 1000);		
 
-    var copyrightInfo = "马雨晨(19770214)伪造官方应用，私自建立未经官方许可群聊，已严重侵犯我司版权，故禁止访问!正版黄猪官网https://ypig.tk/"		
+    var copyrightInfo = "马雨晨(19770214)伪造官方应用，私自建立未经官方许可群聊，已严重侵犯我司版权，故禁止访问!正版黄猪官网/"		
 
       if ( /Ypiginc/.test(navigator.userAgent) !=true && location.pathname !="/api/sendFeedBack" && location.pathname !="/functions/white_noise") {		
        if (document.getElementsByClassName("mdl-layout__header").length != 1 || document.getElementsByClassName("mdl-layout--fixed-header").length != 1) {		
