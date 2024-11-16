@@ -4,7 +4,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" />
   <title>这里是猪猪的世界</title>
   <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
-  <script src="https://ypig.tk/styles/globalSettings.js"></script>
+  <script src="/styles/globalSettings.js"></script>
   <script>
     function getQueryString(name) {
       var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
@@ -15,10 +15,10 @@
     }
 
     function downmusic() {
-      window.open("https://ypig.tk/functions/musicdown.html");
+      window.open("/functions/musicdown.html");
     }
     $(document).ready(function() {
-      music.src = "https://ypig.tk/api/rawtext?text=关闭功能";
+      music.src = "/api/rawtext?text=关闭功能";
 
       setTimeout(function() {
         music.style.display = "block";
@@ -27,14 +27,14 @@
     });
   </script>
   <!--[if IE]>
-    <script src="https://ypig.tk/styles/ie.js"></script>
+    <script src="/styles/ie.js"></script>
   <![endif]-->
 </head>
 <!-- bing images https://api.isoyu.com/bing_images.php -->
 
 <body style="background-image:url('');background-color:#FCFCFC;" oncontextmenu='return false' ondragstart='return false' onselectstart='return false' onselect='document.selection.empty()' oncopy='document.selection.empty()' onbeforecopy='return false'
   onmouseup='document.selection.empty()'>
-  <link rel='stylesheet prefetch' href='https://ypig.tk/styles/material.indigo-pink.min.css'>
+  <link rel='stylesheet prefetch' href='/styles/material.indigo-pink.min.css'>
   <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
 
   <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
@@ -61,8 +61,8 @@
     <div class="mdl-layout__drawer">
       <span class="mdl-layout-title" style="color:#2196F3;">Ypig Inc.</span>
       <nav class="mdl-navigation">
-        <a class="mdl-navigation__link" href="https://ypig.tk/?isUpdateRead=true">Home</a>
-        <a class="mdl-navigation__link" href="https://ypig.tk/functions/vpn">Vpn Service</a>
+        <a class="mdl-navigation__link" href="/?isUpdateRead=true">Home</a>
+        <a class="mdl-navigation__link" href="/functions/vpn">Vpn Service</a>
       </nav>
     </div>
     <main class="mdl-layout__content">
@@ -74,7 +74,7 @@
             <h2 class="mdl-card__title-text" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">随机纯音乐</h2>
           </div>
           <div class="mdl-card__supporting-text post-excerpt" style="font-family:'Microsoft YaHei', Helvetica, Arial, sans-serif;">
-            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" style="display:block;" id="loading" src="https://ypig.tk/functions/embed/loading">not supported</iframe>
+            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" style="display:block;" id="loading" src="/functions/embed/loading">not supported</iframe>
             <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" style="display:none;" id="music" src="">not supported</iframe>
             <button style="margin-left:10px;background-color:#2196F3;" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent" onclick="downmusic()">歌曲解析</button>
           </div>
@@ -83,6 +83,6 @@
     </main>
   </div>
 </body>
-<script src='https://ypig.tk/styles/material.min.js'></script>
+<script src='/styles/material.min.js'></script>
 
 </html>
